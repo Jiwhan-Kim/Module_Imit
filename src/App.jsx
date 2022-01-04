@@ -1,10 +1,12 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
 
 function App() {
   return (
-    <div>
-      <h1>hi</h1>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{ fontSize: "1rem" }}>h2i1</div>
+    </ThemeProvider>
   );
 }
 
