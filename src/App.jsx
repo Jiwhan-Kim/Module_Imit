@@ -17,29 +17,37 @@ function App() {
   const onMinChange = (e) => {
     setMin(e.target.value);
   };
-  const input0 = () => (
-    <InputNum
-      placeholder="'시'를 입력하시오."
-      value={hour}
-      onChange={onHourChange}
-    />
-  );
-  const input1 = () => (
-    <InputNum
-      placeholder="'분'을 입력하시오."
-      value={min}
-      onChange={onMinChange}
-    />
-  );
+  function output0() {
+    return (
+      <InputNum
+        placeholder="'시'를 입력하시오."
+        value={hour}
+        onChange={onHourChange}
+      />
+    );
+  }
+  function output1() {
+    return (
+      <InputNum
+        placeholder="'분'을 입력하시오."
+        value={min}
+        onChange={onMinChange}
+      />
+    );
+  }
   return (
     <ThemeProvider theme={theme}>
       <Routes>
         <Route
           exact
           path="/"
-          element={<LoginView input0={input0} input1={input1} />}
+          element={<LoginView output0={output0()} output1={output1()} />}
         />
-        <Route exact path="/main" element={<MainView />} />
+        <Route
+          exact
+          path="/main"
+          element={<MainView inputHour={hour} inputMin={min} />}
+        />
       </Routes>
     </ThemeProvider>
   );

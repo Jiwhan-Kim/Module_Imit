@@ -1,20 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import moment from "moment";
-import "moment/locale/ko";
 
-function LoginView({ input0, input1 }) {
-  const [hour, setHour] = useState();
-  const [min, setMin] = useState();
-  const onHourChange = (e) => {
-    setHour(e.target.value);
-  };
-  const onMinChange = (e) => {
-    setMin(e.target.value);
-  };
-  function onClickButton() {}
+function LoginView({ output0, output1, inputHour, inputMin }) {
   return (
     <OutLineBox>
       <LoginBox>
@@ -23,28 +11,16 @@ function LoginView({ input0, input1 }) {
           <table>
             <tr>
               <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>시</td>
-              <td>
-                {input0}
-                <InputNum
-                  placeholder="'시'를 입력하시오."
-                  value={hour}
-                  onChange={onHourChange}
-                />
-              </td>
+              <td>{output0}</td>
             </tr>
             <tr>
               <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>분</td>
-              <td>
-                {input1}
-                <InputNum
-                  placeholder="'분'을 입력하시오."
-                  value={min}
-                  onChange={onMinChange}
-                />
-              </td>
+              <td>{output1}</td>
             </tr>
           </table>
-          <ProceedBtn onClick={onClickButton}>시작</ProceedBtn>
+          <Link to="/main" style={{ textDecoration: "none" }}>
+            <ProceedBtn>시작</ProceedBtn>
+          </Link>
         </TimeBox>
       </LoginBox>
     </OutLineBox>
@@ -77,18 +53,7 @@ const ExplainStr = styled.p`
   font-weight: 1000;
   color: #1a365e;
 `;
-const InputNum = styled.input`
-  width: 15.1rem;
-  height: 2.7rem;
-  border-radius: 0rem;
-  border: 0.1rem solid #dddddd;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 const ProceedBtn = styled.div`
   height: 5.9rem;
   width: 6.1rem;
