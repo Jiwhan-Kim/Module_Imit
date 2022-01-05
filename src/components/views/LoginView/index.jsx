@@ -5,26 +5,16 @@ import Moment from "react-moment";
 import moment from "moment";
 import "moment/locale/ko";
 
-function LoginView() {
-  const currentMonth = moment().format("mm");
-  const currentDay = moment().format("dd");
-  const currentHour = moment().format("hh");
-  const currentMin = moment().format("mm");
+function LoginView({ input0, input1 }) {
   const [hour, setHour] = useState();
   const [min, setMin] = useState();
-  let aimTime = 0;
   const onHourChange = (e) => {
     setHour(e.target.value);
   };
   const onMinChange = (e) => {
     setMin(e.target.value);
   };
-  const onClickButton = (e) => {
-    aimTime = hour * 60 + min;
-    if (aimTime > currentHour * 60 + currentMin) {
-    } else {
-    }
-  };
+  function onClickButton() {}
   return (
     <OutLineBox>
       <LoginBox>
@@ -34,6 +24,7 @@ function LoginView() {
             <tr>
               <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>시</td>
               <td>
+                {input0}
                 <InputNum
                   placeholder="'시'를 입력하시오."
                   value={hour}
@@ -44,6 +35,7 @@ function LoginView() {
             <tr>
               <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>분</td>
               <td>
+                {input1}
                 <InputNum
                   placeholder="'분'을 입력하시오."
                   value={min}
@@ -55,10 +47,6 @@ function LoginView() {
           <ProceedBtn onClick={onClickButton}>시작</ProceedBtn>
         </TimeBox>
       </LoginBox>
-      <p>
-        {hour} {min}
-      </p>
-      <Moment format="HH"></Moment>
     </OutLineBox>
   );
 }
