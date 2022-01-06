@@ -1,3 +1,7 @@
+##연세대학교 모의 수강신청 페이지
+사용 언어 : javascript react + styled components
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
