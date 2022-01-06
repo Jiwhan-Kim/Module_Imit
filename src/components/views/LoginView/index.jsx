@@ -2,26 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function LoginView() {
+function LoginView({ output0, output1, inputHour, inputMin }) {
   return (
     <OutLineBox>
       <LoginBox>
-        <ExplainBox>연세대학교 새내기 모의수강신청</ExplainBox>
-        <table>
-          <tr>
-            <td>시</td>
-            <InputNum placeholder="'시'를 입력하시오." />
-            <td rowSpan="2">
-              <Link to="/main">
-                <ProceedBtn />
-              </Link>
-            </td>
-          </tr>
-          <tr>
-            <td>분</td>
-            <InputNum placeholder="'분'을 입력하시오." />
-          </tr>
-        </table>
+        <ExplainStr>연세대학교 새내기 모의수강신청</ExplainStr>
+        <TimeBox>
+          <table>
+            <tr>
+              <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>시</td>
+              <td>{output0}</td>
+            </tr>
+            <tr>
+              <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>분</td>
+              <td>{output1}</td>
+            </tr>
+          </table>
+          <Link to="/main" style={{ textDecoration: "none" }}>
+            <ProceedBtn>시작</ProceedBtn>
+          </Link>
+        </TimeBox>
       </LoginBox>
     </OutLineBox>
   );
@@ -38,20 +38,32 @@ const LoginBox = styled.div`
   width: 47.6rem;
   height: 29rem;
   background: url("/images/login.png");
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
-const ExplainBox = styled.div`
-  margin: 10rem 0rem 0rem 0rem;
+const TimeBox = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const ExplainStr = styled.p`
+  margin: 10rem 0rem 4rem 0rem;
   font-size: 2.5rem;
   font-weight: 1000;
   color: #1a365e;
 `;
-const InputNum = styled.input`
-  width: 15.1rem;
-  height: 2.7rem;
-  border-radius: 0rem;
-  border: 0.1rem solid #aaaaaa;
-  font-size: 1rem;
-`;
-const ProceedBtn = styled.button`
-  height: 5rem;
+
+const ProceedBtn = styled.div`
+  height: 5.9rem;
+  width: 6.1rem;
+  background-color: #abc8e8;
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 1000;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

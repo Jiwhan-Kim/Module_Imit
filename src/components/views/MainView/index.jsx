@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+// components
+import Header from "../../molecules/header";
 
-function MainView() {
+function MainView({ inputHour, inputMin }) {
   return (
     <OutLineBox>
-      <h1>22</h1>
+      <Header />
+      <h1>
+        {inputHour} {inputMin}
+      </h1>
     </OutLineBox>
   );
 }
