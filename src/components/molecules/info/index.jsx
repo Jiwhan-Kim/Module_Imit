@@ -12,7 +12,6 @@ function Info() {
           '모의수강신청' 사이트입니다.
         </NormalStr>
       </div>
-
       <div>
         <NormalStr>
           대기순번제 기간: 2022.02.xx 09:00 ~ 2022.02.xx 17:00
