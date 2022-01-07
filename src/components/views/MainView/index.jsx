@@ -15,12 +15,14 @@ function MainView({ inputHour, inputMin }) {
   const [fontColor0, setFontColor0] = useState("#000000");
   const [fontColor1, setFontColor1] = useState("#ffffff");
   function Btn0Clicked() {
+    setWindow(0);
     setColor0(blueColor);
     setColor1(greyColor);
     setFontColor0("#ffffff");
     setFontColor1("#000000");
   }
   function Btn1Clicked() {
+    setWindow(1);
     setColor0(greyColor);
     setColor1(blueColor);
     setFontColor0("#000000");
