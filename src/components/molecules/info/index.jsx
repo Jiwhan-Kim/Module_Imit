@@ -14,7 +14,7 @@ function Info() {
       </div>
       <div>
         <NormalStr>
-          대기순번제 기간: 2022.02.xx 09:00 ~ 2022.02.xx 17:00
+          대기순번제 기간: 2022.02.xx. 09:00 ~ 2022.02.xx. 17:00
         </NormalStr>
       </div>
     </InfoBox>
