@@ -8,12 +8,13 @@ import SelectedLect from "../../molecules/SelectedLect";
 
 let blueColor = "#0067b1";
 let greyColor = "#f4f4f4";
+
 function MainView({ inputHour, inputMin }) {
   const [window, setWindow] = useState(0);
-  const [color0, setColor0] = useState(greyColor);
-  const [color1, setColor1] = useState(blueColor);
-  const [fontColor0, setFontColor0] = useState("#000000");
-  const [fontColor1, setFontColor1] = useState("#ffffff");
+  const [color0, setColor0] = useState(blueColor);
+  const [color1, setColor1] = useState(greyColor);
+  const [fontColor0, setFontColor0] = useState("#ffffff");
+  const [fontColor1, setFontColor1] = useState("#000000");
   function Btn0Clicked() {
     setWindow(0);
     setColor0(blueColor);
