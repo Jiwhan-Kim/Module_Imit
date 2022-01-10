@@ -24,7 +24,7 @@ function Info() {
 export default Info;
 
 const InfoBox = styled.div`
-  width: 102.4rem;
+  width: 128rem;
   padding: 1rem 3rem 1rem 2rem;
   display: flex;
   flex-direction: row;

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-function SelectedLect() {
+function SelectedLect({ lecture, selectLect }) {
   return (
     <div>
-      <div></div>
+      <p>{lecture[2][8]}</p>
     </div>
   );
 }
