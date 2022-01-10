@@ -14,7 +14,7 @@ function Info() {
       </div>
       <div>
         <NormalStr>
-          대기순번제 기간: 2022.02.xx 09:00 ~ 2022.02.xx 17:00
+          대기순번제 기간: 2022.02.xx. 09:00 ~ 2022.02.xx. 17:00
         </NormalStr>
       </div>
     </InfoBox>
@@ -24,7 +24,7 @@ function Info() {
 export default Info;
 
 const InfoBox = styled.div`
-  width: 102.4rem;
+  width: 128rem;
   padding: 1rem 3rem 1rem 2rem;
   display: flex;
   flex-direction: row;
