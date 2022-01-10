@@ -4,18 +4,8 @@ import styled from "styled-components";
 import TrHeadForOL from "../../atoms/TrHeadForOL";
 
 function OpenedLect({ lecture, selectLect }) {
-  function ListBox({
-    no,
-    num,
-    name,
-    point,
-    prof,
-    time,
-    place,
-    remain,
-    selLect,
-  }) {
-    let color = "#000000";
+  function ListBox({ no, num, name, point, prof, time, place, remain }) {
+    let color = "#ffffff";
     if (no % 2 === 1) {
       color = "#ffffff";
     } else {
@@ -66,7 +56,6 @@ function OpenedLect({ lecture, selectLect }) {
       time={array[5]}
       place={array[6]}
       remain={array[7]}
-      selLect={array[8]}
     />
   ));
   return (
