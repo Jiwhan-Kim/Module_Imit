@@ -46,6 +46,20 @@ const data = [
     0,
     0,
   ],
+  [
+    5,
+    "UCR1007.44-00",
+    "YONSEI RC 101 - 시스템반도체공학과",
+    1,
+    "이주영",
+    1,
+    "어딘가",
+    50,
+    0,
+    0,
+  ],
+  [6, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
+  [7, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
 ];
 function MainView({ inputHour, inputMin }) {
   const [window, setWindow] = useState(0);
@@ -98,10 +112,18 @@ function MainView({ inputHour, inputMin }) {
           </SelectButton>
         </SelectBox>
         {window === 0 && (
-          <OpenedLect lecture={lecture} selectLect={selectLect} />
+          <OpenedLect
+            lecture={lecture}
+            selectLect={selectLect}
+            enrollLect={enrollLect}
+          />
         )}
         {window === 1 && (
-          <SelectedLect lecture={lecture} selectLect={selectLect} />
+          <SelectedLect
+            lecture={lecture}
+            selectLect={selectLect}
+            enrollLect={enrollLect}
+          />
         )}
       </BodyBox>
       {inputHour} : {inputMin}

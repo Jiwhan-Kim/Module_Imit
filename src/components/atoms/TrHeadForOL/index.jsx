@@ -5,14 +5,14 @@ function TrHeadForOL() {
   return (
     <TrHead>
       <TdHead style={{ width: "4rem" }}>No.</TdHead>
-      <TdHead style={{ width: "4rem" }}>
+      <TdHead style={{ width: "5rem" }}>
         희망
         <br />
         과목
       </TdHead>
       <TdHead style={{ width: "4rem" }}>학년</TdHead>
       <TdHead style={{ width: "21rem" }}>학정번호-분반-실습</TdHead>
-      <TdHead style={{ width: "4rem" }}>신청</TdHead>
+      <TdHead style={{ width: "5rem" }}>신청</TdHead>
       <TdHead style={{ width: "21rem" }}>과목명</TdHead>
       <TdHead style={{ width: "4rem" }}>학점</TdHead>
       <TdHead style={{ width: "9rem" }}>담당교수</TdHead>
@@ -33,7 +33,7 @@ function TrHeadForOL() {
         <br />
         잔여석
       </TdHead>
-      <TdHead style={{ width: "15rem", flexDirection: "column" }}>
+      <TdHead style={{ width: "12rem", flexDirection: "column" }}>
         <div
           style={{
             width: "100%",
