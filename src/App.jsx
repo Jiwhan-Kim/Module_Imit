@@ -38,25 +38,32 @@ function App() {
   }
   
   function TimeReturn0() { //수강신청 시작시간 저장 변수 StartTime 설정 함수
-    var TimeRef0 = Date.now();
-    var TimeRef1 = new Date();
+    var TimeRef1 = new Date.now();
     var MinCopy = {...min};
     var HourCopy = {...hour};
-    if (HourCopy = TimeRef1.getHours()) {
+    if (HourCopy == TimeRef1.getHours()) {
       if (MinCopy <= TimeRef1.getMinutes()) {
-        TimeRef0 += 24 * 60 * 60 * 1000;
+        TimeRef1.setHours(HourCopy);
+        TimeRef1.setMinutes(MinCopy);
+        TimeRef1.setDate(TimeRef1.getDate()+1);  
       }
     } else if (HourCopy < TimeRef1.getHours()) {
-      TimeRef0 += 24 * 60 * 60 * 1000;
+      TimeRef1.setHours(HourCopy);
+      TimeRef1.setMinutes(MinCopy);
+      TimeRef1.setDate(TimeRef1.getDate()+1);
+    } else {
+      TimeRef1.setHours(HourCopy);
+      TimeRef1.setMinutes(MinCopy);
     }
 
-    StartTimeSet( TimeRef0 );
+    StartTimeSet( TimeRef1.getTime() );
   }
 
   function TimeReturn1() { //수강 신청 시간과 버튼 클릭 시간 차이를 보여주는 함수
     var TimeRef2 = new Date.now();
-    var timeDifference = (TimeRef2 - StartTime) / 1000;
-    if (TimeRef2 < StartTime) {
+    var EndTime = TimeRef2.getTime();
+    var timeDifference = (EndTime - StartTime) / 1000;
+    if (Endtime < StartTime) {
       alert('수강신청 기간이 아닙니다. (' + -timeDifference + '초 남음)');
     } else {
       alert('설정한 시각보다 ' + timeDifference + '초 늦습니다!');
