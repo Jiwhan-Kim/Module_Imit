@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function LoginView({ output0, output1, inputHour, inputMin }) {
+function LoginView({ output0, output1, inputHour, inputMin, setTime }) {
   return (
     <OutLineBox>
       <LoginBox>
@@ -18,7 +18,7 @@ function LoginView({ output0, output1, inputHour, inputMin }) {
               <td>{output1}</td>
             </tr>
           </table>
-          <Link to="/main" style={{ textDecoration: "none" }}>
+          <Link to="/main" style={{ textDecoration: "none" }} onClick={setTime}>
             <ProceedBtn>시작</ProceedBtn>
           </Link>
         </TimeBox>

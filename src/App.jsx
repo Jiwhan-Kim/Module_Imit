@@ -12,6 +12,7 @@ function App() {
   let [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
   const [hour, setHour] = useState();
   const [min, setMin] = useState();
+  const [a, setA] = useState();
   const onHourChange = (e) => {
     setHour(e.target.value);
   };
@@ -36,37 +37,41 @@ function App() {
       />
     );
   }
-  
-  function TimeReturn0() { //수강신청 시작시간 저장 변수 StartTime 설정 함수
-    var TimeRef1 = new Date.now();
-    var MinCopy = {...min};
-    var HourCopy = {...hour};
-    if (HourCopy == TimeRef1.getHours()) {
+
+  function TimeReturn0() {
+    //수강신청 시작시간 저장 변수 StartTime 설정 함수
+    var TimeRef1 = new Date();
+    var MinCopy = { ...min };
+    var HourCopy = { ...hour };
+    if (HourCopy === TimeRef1.getHours()) {
       if (MinCopy <= TimeRef1.getMinutes()) {
         TimeRef1.setHours(HourCopy);
         TimeRef1.setMinutes(MinCopy);
-        TimeRef1.setDate(TimeRef1.getDate()+1);  
+        TimeRef1.setDate(TimeRef1.getDate() + 1);
       }
     } else if (HourCopy < TimeRef1.getHours()) {
       TimeRef1.setHours(HourCopy);
       TimeRef1.setMinutes(MinCopy);
-      TimeRef1.setDate(TimeRef1.getDate()+1);
+      TimeRef1.setDate(TimeRef1.getDate() + 1);
     } else {
       TimeRef1.setHours(HourCopy);
       TimeRef1.setMinutes(MinCopy);
     }
-
-    StartTimeSet( TimeRef1.getTime() );
+    TimeRef1.setMilliseconds(0);
+    TimeRef1.setSeconds(0);
+    StartTimeSet(TimeRef1.getTime());
+    setA(TimeRef1.getMinutes());
   }
 
-  function TimeReturn1() { //수강 신청 시간과 버튼 클릭 시간 차이를 보여주는 함수
-    var TimeRef2 = new Date.now();
+  function TimeReturn1() {
+    //수강 신청 시간과 버튼 클릭 시간 차이를 보여주는 함수
+    var TimeRef2 = new Date();
     var EndTime = TimeRef2.getTime();
     var timeDifference = (EndTime - StartTime) / 1000;
-    if (Endtime < StartTime) {
-      alert('수강신청 기간이 아닙니다. (' + -timeDifference + '초 남음)');
+    if (EndTime < StartTime) {
+      alert("수강신청 기간이 아닙니다. (" + -timeDifference + "초 남음)");
     } else {
-      alert('설정한 시각보다 ' + timeDifference + '초 늦습니다!');
+      alert("설정한 시각보다 " + timeDifference + "초 늦습니다!");
     }
   }
 
@@ -76,12 +81,20 @@ function App() {
         <Route
           exact
           path="/"
-          element={<LoginView output0={output0()} output1={output1()} />}
+          element={
+            <LoginView
+              output0={output0()}
+              output1={output1()}
+              inputHour={hour}
+              inputMin={min}
+              setTime={TimeReturn0}
+            />
+          }
         />
         <Route
           exact
           path="/main"
-          element={<MainView inputHour={hour} inputMin={min} />}
+          element={<MainView TimeReturn1={TimeReturn1} t={hour} />}
         />
       </Routes>
     </ThemeProvider>

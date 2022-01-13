@@ -3,7 +3,7 @@ import styled from "styled-components";
 // components
 import TrHeadForOL from "../../atoms/TrHeadForOL";
 
-function OpenedLect({ lecture, selectLect, enrollLect }) {
+function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     let color = "#ffffff";
     if (no % 2 === 1) {
@@ -27,6 +27,7 @@ function OpenedLect({ lecture, selectLect, enrollLect }) {
           <button
             onClick={() => {
               enrollLect(no - 1, 1);
+              TimeReturn1();
             }}
           ></button>
         </Td>
