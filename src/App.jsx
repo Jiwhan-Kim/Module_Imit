@@ -10,9 +10,8 @@ import MainView from "./components/views/MainView";
 
 function App() {
   let [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
-  const [hour, setHour] = useState();
-  const [min, setMin] = useState();
-  const [a, setA] = useState();
+  const [hour, setHour] = useState("");
+  const [min, setMin] = useState("");
   const onHourChange = (e) => {
     setHour(e.target.value);
   };
@@ -41,8 +40,8 @@ function App() {
   function TimeReturn0() {
     //수강신청 시작시간 저장 변수 StartTime 설정 함수
     var TimeRef1 = new Date();
-    var MinCopy = { ...min };
-    var HourCopy = { ...hour };
+    var MinCopy = min;
+    var HourCopy = hour;
     if (HourCopy === TimeRef1.getHours()) {
       if (MinCopy <= TimeRef1.getMinutes()) {
         TimeRef1.setHours(HourCopy);
@@ -60,7 +59,6 @@ function App() {
     TimeRef1.setMilliseconds(0);
     TimeRef1.setSeconds(0);
     StartTimeSet(TimeRef1.getTime());
-    setA(TimeRef1.getMinutes());
   }
 
   function TimeReturn1() {
@@ -94,7 +92,7 @@ function App() {
         <Route
           exact
           path="/main"
-          element={<MainView TimeReturn1={TimeReturn1} t={hour} />}
+          element={<MainView TimeReturn1={TimeReturn1} />}
         />
       </Routes>
     </ThemeProvider>

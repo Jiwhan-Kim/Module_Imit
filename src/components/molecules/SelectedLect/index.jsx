@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+// components
 import TrHeadForSL from "../../atoms/TrHeadForSL";
+import EnrollBtn from "../../atoms/EnrollBtn";
 
 function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
   let columnNum = 0;
@@ -20,7 +22,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
       columnNum = columnNum + 1;
       return (
         <Tr style={{ backgroundColor: color }}>
-          <Td style={{ width: "4rem" }}>
+          <Td style={{ width: "6rem" }}>
             <button
               onClick={() => {
                 BtnClicked(no);
@@ -28,16 +30,16 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
             ></button>
           </Td>
           <Td style={{ width: "21rem" }}>{num}</Td>
-          <Td style={{ width: "4rem" }}>
-            <button
+          <Td style={{ width: "6rem" }}>
+            <EnrollBtn
               onClick={() => {
                 enrollLect(no - 1, 1);
                 TimeReturn1();
               }}
-            ></button>
+            />
           </Td>
           <Td style={{ width: "21rem" }}>{name}</Td>
-          <Td style={{ width: "4rem" }}>{point}</Td>
+          <Td style={{ width: "5rem" }}>{point}</Td>
           <Td style={{ width: "9rem" }}>{prof}</Td>
           <Td style={{ width: "7rem" }}>{time}</Td>
           <Td style={{ width: "8rem" }}>{place}</Td>
@@ -45,8 +47,8 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
           <Td style={{ width: "6rem" }}>0</Td>
           <Td style={{ width: "4rem" }}>abc</Td>
           <Td style={{ width: "6rem" }}>-</Td>
-          <Td style={{ width: "15rem" }}>-</Td>
-          <Td style={{ width: "5rem" }}>x</Td>
+          <Td style={{ width: "16rem" }}>-</Td>
+          <Td style={{ width: "6rem" }}>x</Td>
         </Tr>
       );
     }
@@ -96,7 +98,7 @@ const Tr = styled.tr`
   display: flex;
 `;
 const Td = styled.td`
-  height: 4rem;
+  height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
   white-space: pre-line;
