@@ -9,6 +9,7 @@ import LoginView from "./components/views/LoginView";
 import MainView from "./components/views/MainView";
 
 function App() {
+  let [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
   const [hour, setHour] = useState();
   const [min, setMin] = useState();
   const onHourChange = (e) => {
@@ -35,6 +36,33 @@ function App() {
       />
     );
   }
+  
+  function TimeReturn0() { //수강신청 시작시간 저장 변수 StartTime 설정 함수
+    var TimeRef0 = Date.now();
+    var TimeRef1 = new Date();
+    var MinCopy = {...min};
+    var HourCopy = {...hour};
+    if (HourCopy = TimeRef1.getHours()) {
+      if (MinCopy <= TimeRef1.getMinutes()) {
+        TimeRef0 += 24 * 60 * 60 * 1000;
+      }
+    } else if (HourCopy < TimeRef1.getHours()) {
+      TimeRef0 += 24 * 60 * 60 * 1000;
+    }
+
+    StartTimeSet( TimeRef0 );
+  }
+
+  function TimeReturn1() { //수강 신청 시간과 버튼 클릭 시간 차이를 보여주는 함수
+    var TimeRef2 = new Date.now();
+    var timeDifference = (TimeRef2 - StartTime) / 1000;
+    if (TimeRef2 < StartTime) {
+      alert('수강신청 기간이 아닙니다. (' + -timeDifference + '초 남음)');
+    } else {
+      alert('설정한 시각보다 ' + timeDifference + '초 늦습니다!');
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Routes>
