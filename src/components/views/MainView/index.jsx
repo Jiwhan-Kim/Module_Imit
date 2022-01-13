@@ -61,7 +61,7 @@ const data = [
   [6, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
   [7, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
 ];
-function MainView({ inputHour, inputMin }) {
+function MainView({ inputHour, inputMin, TimeReturn1 }) {
   const [window, setWindow] = useState(0);
   const [color0, setColor0] = useState(blueColor);
   const [color1, setColor1] = useState(greyColor);
@@ -116,6 +116,7 @@ function MainView({ inputHour, inputMin }) {
             lecture={lecture}
             selectLect={selectLect}
             enrollLect={enrollLect}
+            TimeReturn1={TimeReturn1}
           />
         )}
         {window === 1 && (
@@ -123,10 +124,10 @@ function MainView({ inputHour, inputMin }) {
             lecture={lecture}
             selectLect={selectLect}
             enrollLect={enrollLect}
+            TimeReturn1={TimeReturn1}
           />
         )}
       </BodyBox>
-      {inputHour} : {inputMin}
     </OutLineBox>
   );
 }

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // components
 import TrHeadForOL from "../../atoms/TrHeadForOL";
+import EnrollBtn from "../../atoms/EnrollBtn";
 
-function OpenedLect({ lecture, selectLect, enrollLect }) {
+function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     let color = "#ffffff";
     if (no % 2 === 1) {
@@ -23,12 +24,13 @@ function OpenedLect({ lecture, selectLect, enrollLect }) {
         </Td>
         <Td style={{ width: "4rem" }}>1</Td>
         <Td style={{ width: "21rem" }}>{num}</Td>
-        <Td style={{ width: "5rem" }}>
-          <button
+        <Td style={{ width: "6rem" }}>
+          <EnrollBtn
             onClick={() => {
               enrollLect(no - 1, 1);
+              TimeReturn1();
             }}
-          ></button>
+          />
         </Td>
         <Td style={{ width: "21rem" }}>{name}</Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
@@ -88,7 +90,7 @@ const Tr = styled.tr`
   display: flex;
 `;
 const Td = styled.td`
-  height: 4rem;
+  height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
 
