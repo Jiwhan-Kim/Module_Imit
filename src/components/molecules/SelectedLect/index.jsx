@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import TrHeadForSL from "../../atoms/TrHeadForSL";
 
-function SelectedLect({ lecture, selectLect }) {
+function SelectedLect({ lecture, selectLect, enrollLect }) {
   let columnNum = 0;
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     let color = "#ffffff";
@@ -28,7 +28,13 @@ function SelectedLect({ lecture, selectLect }) {
             ></button>
           </Td>
           <Td style={{ width: "21rem" }}>{num}</Td>
-          <Td style={{ width: "4rem" }}>신청</Td>
+          <Td style={{ width: "4rem" }}>
+            <button
+              onClick={() => {
+                enrollLect(no - 1, 1);
+              }}
+            ></button>
+          </Td>
           <Td style={{ width: "21rem" }}>{name}</Td>
           <Td style={{ width: "4rem" }}>{point}</Td>
           <Td style={{ width: "9rem" }}>{prof}</Td>
@@ -94,6 +100,7 @@ const Td = styled.td`
   border-bottom: 0.15rem solid #e3e3e3;
   white-space: pre-line;
 
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;

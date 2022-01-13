@@ -3,7 +3,7 @@ import styled from "styled-components";
 // components
 import TrHeadForOL from "../../atoms/TrHeadForOL";
 
-function OpenedLect({ lecture, selectLect }) {
+function OpenedLect({ lecture, selectLect, enrollLect }) {
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     let color = "#ffffff";
     if (no % 2 === 1) {
@@ -11,22 +11,25 @@ function OpenedLect({ lecture, selectLect }) {
     } else {
       color = "#f6f6f6";
     }
-    const BtnClicked = (temp) => {
-      selectLect(temp - 1, 1);
-    };
     return (
       <Tr style={{ backgroundColor: color }}>
         <Td style={{ width: "4rem" }}>{no}</Td>
-        <Td style={{ width: "4rem" }}>
+        <Td style={{ width: "5rem" }}>
           <button
             onClick={() => {
-              BtnClicked(no);
+              selectLect(no - 1, 1);
             }}
           ></button>
         </Td>
         <Td style={{ width: "4rem" }}>1</Td>
         <Td style={{ width: "21rem" }}>{num}</Td>
-        <Td style={{ width: "4rem" }}>신청</Td>
+        <Td style={{ width: "5rem" }}>
+          <button
+            onClick={() => {
+              enrollLect(no - 1, 1);
+            }}
+          ></button>
+        </Td>
         <Td style={{ width: "21rem" }}>{name}</Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
         <Td style={{ width: "9rem" }}>{prof}</Td>
@@ -36,7 +39,7 @@ function OpenedLect({ lecture, selectLect }) {
         <Td style={{ width: "6rem" }}>0</Td>
         <Td style={{ width: "4rem" }}>abc</Td>
         <Td style={{ width: "6rem" }}>-</Td>
-        <Td style={{ width: "15rem" }}>-</Td>
+        <Td style={{ width: "12rem" }}>-</Td>
         <Td style={{ width: "5rem" }}>x</Td>
       </Tr>
     );
@@ -88,8 +91,8 @@ const Td = styled.td`
   height: 4rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
-  white-space: pre-line;
 
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
