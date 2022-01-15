@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import ModalLogin from "../../atoms/ModalLogin";
 
 function LoginView({ output0, output1, setTime, link }) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <OutLineBox>
+      <ModalLogin open={modalOpen} close={closeModal} />
       <LoginBox>
         <ExplainStr>연세대학교 새내기 모의수강신청</ExplainStr>
         <TimeBox>
@@ -20,7 +29,14 @@ function LoginView({ output0, output1, setTime, link }) {
               </tr>
             </tbody>
           </table>
-          <Link to={link} style={{ textDecoration: "none" }} onClick={setTime}>
+          <Link
+            to={link}
+            style={{ textDecoration: "none" }}
+            onClick={() => {
+              setTime();
+              openModal();
+            }}
+          >
             <ProceedBtn>시작</ProceedBtn>
           </Link>
         </TimeBox>
