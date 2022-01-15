@@ -17,7 +17,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
       selectLect(temp - 1, 0);
     };
     if (lecture[no - 1][8] === 0) {
-      return <div></div>;
+      return <tr />;
     } else {
       columnNum = columnNum + 1;
       return (
@@ -80,8 +80,10 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
           borderCollapse: "collapse",
         }}
       >
-        <TrHeadForSL />
-        {ListItems}
+        <thead>
+          <TrHeadForSL />
+        </thead>
+        <tbody>{ListItems}</tbody>
       </table>
     </OutLineBox>
   );

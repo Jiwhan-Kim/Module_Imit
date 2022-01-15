@@ -72,8 +72,10 @@ function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
           borderCollapse: "collapse",
         }}
       >
-        <TrHeadForOL />
-        {ListItems}
+        <thead>
+          <TrHeadForOL />
+        </thead>
+        <tbody>{ListItems}</tbody>
       </table>
     </OutLineBox>
   );

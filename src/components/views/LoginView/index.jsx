@@ -2,23 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function LoginView({ output0, output1, inputHour, inputMin, setTime }) {
+function LoginView({ output0, output1, setTime, link }) {
   return (
     <OutLineBox>
       <LoginBox>
         <ExplainStr>연세대학교 새내기 모의수강신청</ExplainStr>
         <TimeBox>
           <table>
-            <tr>
-              <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>시</td>
-              <td>{output0}</td>
-            </tr>
-            <tr>
-              <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>분</td>
-              <td>{output1}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>시</td>
+                <td>{output0}</td>
+              </tr>
+              <tr>
+                <td style={{ paddingRight: "1rem", fontSize: "1.4rem" }}>분</td>
+                <td>{output1}</td>
+              </tr>
+            </tbody>
           </table>
-          <Link to="/main" style={{ textDecoration: "none" }} onClick={setTime}>
+          <Link to={link} style={{ textDecoration: "none" }} onClick={setTime}>
             <ProceedBtn>시작</ProceedBtn>
           </Link>
         </TimeBox>

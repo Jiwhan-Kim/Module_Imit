@@ -75,7 +75,7 @@ const TrHead = styled.tr`
   font-weight: 700;
   display: flex;
 `;
-const TdHead = styled.td`
+const TdHead = styled.th`
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
   height: 6rem;
