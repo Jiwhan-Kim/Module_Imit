@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 // themes
 import { ThemeProvider } from "styled-components";
@@ -9,7 +9,13 @@ import LoginView from "./components/views/LoginView";
 import MainView from "./components/views/MainView";
 
 function App() {
-  const [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
+  let [StartTime, StartTimeSet] = useState(
+    () => JSON.parse(window.localStorage.getItem("StartTime")) || 0
+  ); //수강신청 시작시간 저장 변수
+
+  useEffect(() => {
+    window.localStorage.setItem("StartTime", JSON.stringify(StartTime));
+  }, [StartTime]);
   const [textTime, setTextTime] = useState();
   const [hour, setHour] = useState("");
   const [min, setMin] = useState("");
