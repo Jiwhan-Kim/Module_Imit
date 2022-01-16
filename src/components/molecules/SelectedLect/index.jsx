@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // components
 import TrHeadForSL from "../../atoms/TrHeadForSL";
 import EnrollBtn from "../../atoms/EnrollBtn";
 
 function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
-  let columnNum = 0;
+  let [columnNum, setColumnNum] = useState(0);
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     let color = "#ffffff";
     if (columnNum % 2 === 0) {
@@ -19,7 +19,6 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
     if (lecture[no - 1][8] === 0) {
       return <tr />;
     } else {
-      columnNum = columnNum + 1;
       return (
         <Tr style={{ backgroundColor: color }}>
           <Td style={{ width: "6rem" }}>
@@ -96,7 +95,6 @@ const OutLineBox = styled.div`
 `;
 const Tr = styled.tr`
   font-size: 1.5rem;
-
   display: flex;
 `;
 const Td = styled.td`

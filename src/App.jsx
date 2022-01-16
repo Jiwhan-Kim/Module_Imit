@@ -10,9 +10,10 @@ import MainView from "./components/views/MainView";
 
 function App() {
   let [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
-  const [hour, setHour] = useState();
-  const [min, setMin] = useState();
-  const [link, setLink] = useState("/");
+  const [textTime, setTextTime] = useState();
+  const [hour, setHour] = useState("");
+  const [min, setMin] = useState("");
+  const [valid, setValid] = useState(false);
   const onHourChange = (e) => {
     setHour(e.target.value);
   };
@@ -44,8 +45,14 @@ function App() {
     );
   }
   function TimeReturn0() {
-    if (hour >= 0 && hour <= 23 && min >= 0 && min <= 59) {
-      setLink("/main");
+    if (
+      hour >= 0 &&
+      hour <= 23 &&
+      min >= 0 &&
+      min <= 59 &&
+      hour !== "" &&
+      min !== ""
+    ) {
       //수강신청 시작시간 저장 변수 StartTime 설정 함수
       var TimeRef1 = new Date();
       var AimTime = new Date();
@@ -57,7 +64,23 @@ function App() {
       AimTime.setMilliseconds(0);
       AimTime.setSeconds(0);
       StartTimeSet(AimTime.getTime());
-    } else console.log("이건");
+      setTextTime(
+        AimTime.getFullYear() +
+          "년 " +
+          AimTime.getMonth() +
+          1 +
+          "월 " +
+          AimTime.getDate() +
+          "일 " +
+          AimTime.getHours() +
+          "시 " +
+          AimTime.getMinutes() +
+          "분 "
+      );
+      setValid(true);
+    } else {
+      setValid(false);
+    }
   }
 
   function TimeReturn1() {
@@ -83,7 +106,8 @@ function App() {
               output0={output0()}
               output1={output1()}
               setTime={TimeReturn0}
-              link={link}
+              time={textTime}
+              valid={valid}
             />
           }
         />

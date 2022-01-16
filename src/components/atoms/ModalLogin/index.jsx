@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function ModalLogin(props) {
-  const { open, close } = props;
+  const { valid, open, close, time } = props;
   return (
     <div>
       {open ? (
@@ -46,7 +47,28 @@ function ModalLogin(props) {
               onClick={close}
             ></div>
           </Header>
-          <Body>s</Body>
+          {valid ? (
+            <Body>
+              <P0 style={{ marginTop: "2rem" }}>모의수강신청 시작 시각</P0>
+              <P0>{time}</P0>
+              <Link
+                to="/main"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  marginTop: "3.7rem",
+                }}
+              >
+                <ProceedBtn>확인</ProceedBtn>
+              </Link>
+            </Body>
+          ) : (
+            <Body>
+              <P0 style={{ marginTop: "2rem" }}>
+                모의수강신청 시각을 다시 입력하십시오.
+              </P0>
+            </Body>
+          )}
         </Alert>
       ) : null}
     </div>
@@ -80,7 +102,24 @@ const Body = styled.div`
   border-left: 0.15rem solid #b3b3b3;
   border-right: 0.15rem solid #b3b3b3;
   background-color: #ffffff;
+  color: #444;
 
   display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+const ProceedBtn = styled.div`
+  border: 0.1rem solid #b0b0b0;
+  width: 5.4rem;
+  height: 2.3rem;
+  font-size: 1.2rem;
+  background: linear-gradient(to bottom, #fafafa, #f0f0f0);
+  border-radius: 0.3rem;
+
+  display: flex;
+  align-items: center;
   justify-content: center;
+`;
+const P0 = styled.p`
+  font-size: 1.5rem;
 `;

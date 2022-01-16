@@ -104,9 +104,12 @@ function MainView({ TimeReturn1 }) {
     tempArray[pointer][9] = nums;
     setLecture(tempArray);
   };
+  function Init() {
+    setLecture(data);
+  }
   return (
     <OutLineBox>
-      <Header />
+      <Header Init={Init} />
       <BodyBox>
         <Info />
         <SelectBox>
