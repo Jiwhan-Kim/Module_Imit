@@ -7,75 +7,85 @@ function ModalLogin(props) {
   return (
     <div>
       {open ? (
-        <Alert>
-          <Header>
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0.3rem",
-                background:
-                  'url("/images/logo_mdi.gif") center center no-repeat',
-                width: "2rem",
-                height: "2.4rem",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: "0.5rem",
-                left: "2.5rem",
-                width: "30rem",
-                height: "2.1rem",
-                color: "#383d41",
-                whiteSpze: "nowrap",
-              }}
-            >
-              Alert
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                width: "5.9rem",
-                height: "1.7rem",
-                top: "0.5rem",
-                left: "28.4rem",
-                background:
-                  'url("/images/btn_close.gif") center right no-repeat',
-                cursor: "pointer",
-              }}
-              onClick={close}
-            ></div>
-          </Header>
-          {valid ? (
-            <Body>
-              <P0 style={{ marginTop: "2rem" }}>모의수강신청 시작 시각</P0>
-              <P0>{time}</P0>
-              <Link
-                to="/main"
+        <Background>
+          <Alert>
+            <Header>
+              <div
                 style={{
-                  textDecoration: "none",
-                  color: "black",
-                  marginTop: "3.7rem",
+                  position: "absolute",
+                  top: "0",
+                  left: "0.3rem",
+                  background:
+                    'url("/images/logo_mdi.gif") center center no-repeat',
+                  width: "2rem",
+                  height: "2.4rem",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0.5rem",
+                  left: "2.5rem",
+                  width: "30rem",
+                  height: "2.1rem",
+                  color: "#383d41",
+                  whiteSpze: "nowrap",
                 }}
               >
-                <ProceedBtn>확인</ProceedBtn>
-              </Link>
-            </Body>
-          ) : (
-            <Body>
-              <P0 style={{ marginTop: "2rem" }}>
-                모의수강신청 시각을 다시 입력하십시오.
-              </P0>
-            </Body>
-          )}
-        </Alert>
+                Alert
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  width: "5.9rem",
+                  height: "1.7rem",
+                  top: "0.5rem",
+                  left: "28.4rem",
+                  background:
+                    'url("/images/btn_close.gif") center right no-repeat',
+                  cursor: "pointer",
+                }}
+                onClick={close}
+              ></div>
+            </Header>
+            {valid ? (
+              <Body>
+                <P0 style={{ marginTop: "2rem" }}>모의수강신청 시작 시각</P0>
+                <P0>{time}</P0>
+                <Link
+                  to="/main"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    marginTop: "3.7rem",
+                  }}
+                >
+                  <ProceedBtn>확인</ProceedBtn>
+                </Link>
+              </Body>
+            ) : (
+              <Body>
+                <P0 style={{ marginTop: "2rem" }}>
+                  모의수강신청 시각을 다시 입력하십시오.
+                </P0>
+              </Body>
+            )}
+          </Alert>
+        </Background>
       ) : null}
     </div>
   );
 }
 
 export default ModalLogin;
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+`;
 
 const Alert = styled.div`
   margin-left: -17.5rem;

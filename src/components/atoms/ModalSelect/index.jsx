@@ -2,11 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function ModalTime(props) {
-  const { open, close, StartTime } = props;
-  var TimeRef = new Date();
-  var EndTime = TimeRef.getTime();
-  var DeltaTime = (EndTime - StartTime) / 1000;
+function ModalSelect(props) {
+  const { open, close, lecName } = props;
   return (
     <div>
       {open ? (
@@ -51,40 +48,22 @@ function ModalTime(props) {
                 onClick={close}
               ></div>
             </Header>
-            {DeltaTime >= 0 ? (
-              <Body>
-                <P0 style={{ marginTop: "2rem" }}>설정한 시각보다 </P0>
-                <P0>{DeltaTime}초 늦습니다!</P0>
-                <Link
-                  to="/main"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    marginTop: "3.7rem",
-                  }}
-                >
-                  <ProceedBtn onClick={close}>확인</ProceedBtn>
-                </Link>
-              </Body>
-            ) : (
-              <Body>
-                <P0 style={{ marginTop: "2rem" }}>
-                  수강신청 기간이 아닙니다.{" "}
-                </P0>
-                <P0>({-DeltaTime}초 남음) </P0>
-
-                <Link
-                  to="/main"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    marginTop: "3.7rem",
-                  }}
-                >
-                  <ProceedBtn onClick={close}>확인</ProceedBtn>
-                </Link>
-              </Body>
-            )}
+            <Body>
+              <P0 style={{ marginTop: "2rem" }}>
+                선택한 과목이 선택되었습니다.
+              </P0>
+              <P0>과목명: {lecName}</P0>
+              <Link
+                to="/main"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  marginTop: "3.7rem",
+                }}
+              >
+                <ProceedBtn onClick={close}>확인</ProceedBtn>
+              </Link>
+            </Body>
           </Alert>
         </Background>
       ) : null}
@@ -92,7 +71,8 @@ function ModalTime(props) {
   );
 }
 
-export default ModalTime;
+export default ModalSelect;
+
 const Background = styled.div`
   position: fixed;
   top: 0;

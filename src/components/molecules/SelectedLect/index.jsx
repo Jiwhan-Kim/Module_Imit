@@ -2,38 +2,45 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // components
 import TrHeadForSL from "../../atoms/TrHeadForSL";
+import DeleteBtn from "../../atoms/DeleteBtn";
 import EnrollBtn from "../../atoms/EnrollBtn";
-
-function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
-  let [columnNum, setColumnNum] = useState(0);
+import ModalTime from "../../atoms/ModalTime";
+// f6f6f6 ffffff
+function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
+  const [modal1Open, setModal1Open] = useState(false);
+  let color = "#ffffff";
+  const openModal1 = () => {
+    setModal1Open(true);
+  };
+  const closeModal1 = () => {
+    setModal1Open(false);
+  };
+  let j = 0;
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
-    let color = "#ffffff";
-    if (columnNum % 2 === 0) {
+    if (j % 4 === 1) {
       color = "#ffffff";
     } else {
       color = "#f6f6f6";
-    }
-    const BtnClicked = (temp) => {
-      selectLect(temp - 1, 0);
-    };
+    } // 이게 왜 되는거지????????
     if (lecture[no - 1][8] === 0) {
       return <tr />;
     } else {
+      j = j + 1;
       return (
         <Tr style={{ backgroundColor: color }}>
           <Td style={{ width: "6rem" }}>
-            <button
+            <DeleteBtn
               onClick={() => {
-                BtnClicked(no);
+                selectLect(no - 1, 0);
               }}
-            ></button>
+            />
           </Td>
           <Td style={{ width: "21.925rem" }}>{num}</Td>
           <Td style={{ width: "6rem" }}>
             <EnrollBtn
               onClick={() => {
                 enrollLect(no - 1, 1);
-                TimeReturn1();
+                openModal1();
               }}
             />
           </Td>
@@ -72,6 +79,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
 
   return (
     <OutLineBox>
+      <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
       <table
         style={{
           borderTop: "0.2rem solid #d4d4d4",
