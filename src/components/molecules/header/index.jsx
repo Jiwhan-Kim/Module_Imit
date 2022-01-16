@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ Init }) {
   return (
     <HeaderBox>
       <div
@@ -45,7 +45,7 @@ function Header() {
             <Td1>1</Td1>
           </tr>
         </table>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }} onClick={Init}>
           <LogoutButton>로그아웃</LogoutButton>
         </Link>
       </div>

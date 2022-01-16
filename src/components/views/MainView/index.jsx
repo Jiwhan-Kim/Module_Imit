@@ -60,8 +60,20 @@ const data = [
   ],
   [6, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
   [7, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
+  [
+    8,
+    "SSE2118.90-04",
+    "모의수강신청",
+    1,
+    "김지환",
+    0.5,
+    "Zoom 강의실",
+    50,
+    0,
+    0,
+  ],
 ];
-function MainView({ inputHour, inputMin, TimeReturn1 }) {
+function MainView({ TimeReturn1 }) {
   const [window, setWindow] = useState(0);
   const [color0, setColor0] = useState(blueColor);
   const [color1, setColor1] = useState(greyColor);
@@ -92,9 +104,12 @@ function MainView({ inputHour, inputMin, TimeReturn1 }) {
     tempArray[pointer][9] = nums;
     setLecture(tempArray);
   };
+  function Init() {
+    setLecture(data);
+  }
   return (
     <OutLineBox>
-      <Header />
+      <Header Init={Init} />
       <BodyBox>
         <Info />
         <SelectBox>

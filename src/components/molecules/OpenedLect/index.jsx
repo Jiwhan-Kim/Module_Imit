@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 // components
 import TrHeadForOL from "../../atoms/TrHeadForOL";
@@ -72,8 +72,10 @@ function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
           borderCollapse: "collapse",
         }}
       >
-        <TrHeadForOL />
-        {ListItems}
+        <thead>
+          <TrHeadForOL />
+        </thead>
+        <tbody>{ListItems}</tbody>
       </table>
     </OutLineBox>
   );
