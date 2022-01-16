@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import ModalLogin from "../../atoms/ModalLogin";
 
 function LoginView({ output0, output1, setTime, time, valid }) {

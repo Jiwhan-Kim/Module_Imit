@@ -32,7 +32,7 @@ function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
             }}
           />
         </Td>
-        <Td style={{ width: "21rem" }}>{name}</Td>
+        <Td style={{ width: "20.925rem" }}>{name}</Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
         <Td style={{ width: "9rem" }}>{prof}</Td>
         <Td style={{ width: "7rem" }}>{time}</Td>
@@ -75,7 +75,7 @@ function OpenedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
         <thead>
           <TrHeadForOL />
         </thead>
-        <tbody>{ListItems}</tbody>
+        <tbody style={{ maxHeight: "20rem" }}>{ListItems}</tbody>
       </table>
     </OutLineBox>
   );

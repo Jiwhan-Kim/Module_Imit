@@ -28,7 +28,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
               }}
             ></button>
           </Td>
-          <Td style={{ width: "21rem" }}>{num}</Td>
+          <Td style={{ width: "21.925rem" }}>{num}</Td>
           <Td style={{ width: "6rem" }}>
             <EnrollBtn
               onClick={() => {
@@ -82,7 +82,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, TimeReturn1 }) {
         <thead>
           <TrHeadForSL />
         </thead>
-        <tbody>{ListItems}</tbody>
+        <tbody style={{ minHeight: "20rem" }}>{ListItems}</tbody>
       </table>
     </OutLineBox>
   );
