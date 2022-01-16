@@ -5,7 +5,7 @@ function TrHeadForSL() {
   return (
     <TrHead>
       <TdHead style={{ width: "6rem" }}>삭제</TdHead>
-      <TdHead style={{ width: "21rem" }}>학정번호-분반-실습</TdHead>
+      <TdHead style={{ width: "21.925rem" }}>학정번호-분반-실습</TdHead>
       <TdHead style={{ width: "6rem" }}>신청</TdHead>
       <TdHead style={{ width: "21rem" }}>과목명</TdHead>
       <TdHead style={{ width: "5rem" }}>학점</TdHead>

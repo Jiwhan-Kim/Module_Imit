@@ -9,7 +9,7 @@ import LoginView from "./components/views/LoginView";
 import MainView from "./components/views/MainView";
 
 function App() {
-  let [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
+  const [StartTime, StartTimeSet] = useState(); //수강신청 시작시간 저장 변수
   const [textTime, setTextTime] = useState();
   const [hour, setHour] = useState("");
   const [min, setMin] = useState("");
@@ -83,18 +83,6 @@ function App() {
     }
   }
 
-  function TimeReturn1() {
-    //수강 신청 시간과 버튼 클릭 시간 차이를 보여주는 함수
-    var TimeRef2 = new Date();
-    var EndTime = TimeRef2.getTime();
-    var timeDifference = (EndTime - StartTime) / 1000;
-    if (EndTime < StartTime) {
-      alert("수강신청 기간이 아닙니다. (" + -timeDifference + "초 남음)");
-    } else {
-      alert("설정한 시각보다 " + timeDifference + "초 늦습니다!");
-    }
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <Routes>
@@ -114,7 +102,7 @@ function App() {
         <Route
           exact
           path="/main"
-          element={<MainView TimeReturn1={TimeReturn1} />}
+          element={<MainView StartTime={StartTime} />}
         />
       </Routes>
     </ThemeProvider>

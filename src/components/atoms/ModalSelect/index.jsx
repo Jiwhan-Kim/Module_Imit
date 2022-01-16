@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function ModalLogin(props) {
-  const { valid, open, close, time } = props;
+function ModalSelect(props) {
+  const { open, close, lecName } = props;
   return (
     <div>
       {open ? (
@@ -48,28 +48,22 @@ function ModalLogin(props) {
                 onClick={close}
               ></div>
             </Header>
-            {valid ? (
-              <Body>
-                <P0 style={{ marginTop: "2rem" }}>모의수강신청 시작 시각</P0>
-                <P0>{time}</P0>
-                <Link
-                  to="/main"
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    marginTop: "3.7rem",
-                  }}
-                >
-                  <ProceedBtn>확인</ProceedBtn>
-                </Link>
-              </Body>
-            ) : (
-              <Body>
-                <P0 style={{ marginTop: "2rem" }}>
-                  모의수강신청 시각을 다시 입력하십시오.
-                </P0>
-              </Body>
-            )}
+            <Body>
+              <P0 style={{ marginTop: "2rem" }}>
+                선택한 과목이 선택되었습니다.
+              </P0>
+              <P0>과목명: {lecName}</P0>
+              <Link
+                to="/main"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  marginTop: "3.7rem",
+                }}
+              >
+                <ProceedBtn onClick={close}>확인</ProceedBtn>
+              </Link>
+            </Body>
           </Alert>
         </Background>
       ) : null}
@@ -77,7 +71,8 @@ function ModalLogin(props) {
   );
 }
 
-export default ModalLogin;
+export default ModalSelect;
+
 const Background = styled.div`
   position: fixed;
   top: 0;
@@ -86,7 +81,6 @@ const Background = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0.6);
 `;
-
 const Alert = styled.div`
   margin-left: -17.5rem;
   margin-top: -7.5rem;

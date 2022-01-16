@@ -22,8 +22,9 @@ const data = [
     0,
   ],
   [2, "MAT1011.99-00", "공학수학(1)", 3, "맥고나걸", 4, "제2공학관", 45, 0, 0],
+  [3, "MOD8576.69-00", "Module", 3, "convert", 3, "ASCII", 50, 0, 0],
   [
-    3,
+    4,
     "PHY1011.99-00",
     "공학물리학실험(1)",
     3,
@@ -35,7 +36,7 @@ const data = [
     0,
   ],
   [
-    4,
+    5,
     "SSE1011.01-00",
     "시스템반도체공학개론",
     3,
@@ -47,21 +48,7 @@ const data = [
     0,
   ],
   [
-    5,
-    "UCR1007.44-00",
-    "YONSEI RC 101 - 시스템반도체공학과",
-    1,
-    "이주영",
-    1,
-    "어딘가",
-    50,
-    0,
-    0,
-  ],
-  [6, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
-  [7, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
-  [
-    8,
+    6,
     "SSE2118.90-04",
     "모의수강신청",
     1,
@@ -72,8 +59,22 @@ const data = [
     0,
     0,
   ],
+  [
+    7,
+    "UCR1007.44-00",
+    "YONSEI RC 101 - 시스템반도체공학과",
+    1,
+    "이주영",
+    1,
+    "어딘가",
+    50,
+    0,
+    0,
+  ],
+  [8, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
+  [9, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
 ];
-function MainView({ TimeReturn1 }) {
+function MainView({ StartTime }) {
   const [window, setWindow] = useState(0);
   const [color0, setColor0] = useState(blueColor);
   const [color1, setColor1] = useState(greyColor);
@@ -105,7 +106,9 @@ function MainView({ TimeReturn1 }) {
     setLecture(tempArray);
   };
   function Init() {
-    setLecture(data);
+    for (let i = 0; i < lecture.length; i++) {
+      selectLect(i, 0);
+    }
   }
   return (
     <OutLineBox>
@@ -131,7 +134,7 @@ function MainView({ TimeReturn1 }) {
             lecture={lecture}
             selectLect={selectLect}
             enrollLect={enrollLect}
-            TimeReturn1={TimeReturn1}
+            StartTime={StartTime}
           />
         )}
         {window === 1 && (
@@ -139,7 +142,7 @@ function MainView({ TimeReturn1 }) {
             lecture={lecture}
             selectLect={selectLect}
             enrollLect={enrollLect}
-            TimeReturn1={TimeReturn1}
+            StartTime={StartTime}
           />
         )}
       </BodyBox>

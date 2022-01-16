@@ -13,7 +13,7 @@ function TrHeadForOL() {
       <TdHead style={{ width: "4rem" }}>학년</TdHead>
       <TdHead style={{ width: "21rem" }}>학정번호-분반-실습</TdHead>
       <TdHead style={{ width: "6rem" }}>신청</TdHead>
-      <TdHead style={{ width: "21rem" }}>과목명</TdHead>
+      <TdHead style={{ width: "20.925rem" }}>과목명</TdHead>
       <TdHead style={{ width: "4rem" }}>학점</TdHead>
       <TdHead style={{ width: "9rem" }}>담당교수</TdHead>
       <TdHead style={{ width: "7rem" }}>강의시간</TdHead>

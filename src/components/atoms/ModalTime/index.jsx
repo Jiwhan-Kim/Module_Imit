@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function ModalLogin(props) {
-  const { valid, open, close, time } = props;
+function ModalTime(props) {
+  const { open, close, StartTime } = props;
+  var TimeRef = new Date();
+  var EndTime = TimeRef.getTime();
+  var DeltaTime = (EndTime - StartTime) / 1000;
   return (
     <div>
       {open ? (
@@ -48,10 +51,10 @@ function ModalLogin(props) {
                 onClick={close}
               ></div>
             </Header>
-            {valid ? (
+            {DeltaTime >= 0 ? (
               <Body>
-                <P0 style={{ marginTop: "2rem" }}>모의수강신청 시작 시각</P0>
-                <P0>{time}</P0>
+                <P0 style={{ marginTop: "2rem" }}>설정한 시각보다 </P0>
+                <P0>{DeltaTime}초 늦습니다!</P0>
                 <Link
                   to="/main"
                   style={{
@@ -60,14 +63,26 @@ function ModalLogin(props) {
                     marginTop: "3.7rem",
                   }}
                 >
-                  <ProceedBtn>확인</ProceedBtn>
+                  <ProceedBtn onClick={close}>확인</ProceedBtn>
                 </Link>
               </Body>
             ) : (
               <Body>
                 <P0 style={{ marginTop: "2rem" }}>
-                  모의수강신청 시각을 다시 입력하십시오.
+                  수강신청 기간이 아닙니다.{" "}
                 </P0>
+                <P0>({-DeltaTime}초 남음) </P0>
+
+                <Link
+                  to="/main"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    marginTop: "3.7rem",
+                  }}
+                >
+                  <ProceedBtn onClick={close}>확인</ProceedBtn>
+                </Link>
               </Body>
             )}
           </Alert>
@@ -77,7 +92,7 @@ function ModalLogin(props) {
   );
 }
 
-export default ModalLogin;
+export default ModalTime;
 const Background = styled.div`
   position: fixed;
   top: 0;
@@ -86,7 +101,6 @@ const Background = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0.6);
 `;
-
 const Alert = styled.div`
   margin-left: -17.5rem;
   margin-top: -7.5rem;
