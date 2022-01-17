@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // components
 import Header from "../../molecules/header";
@@ -74,27 +74,25 @@ const data = [
   [8, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", 0.5, "어딘가", 4000, 0, 0],
   [9, "YCB1101.99-00", "글쓰기", 3, "해그리드", 3, "어딘가", 25, 0, 0],
 ];
+const winS0 = [0, blueColor, greyColor, "#ffffff", "#000000"];
+const winS1 = [1, greyColor, blueColor, "#000000", "#ffffff"];
 function MainView({ StartTime }) {
-  const [window, setWindow] = useState(0);
-  const [color0, setColor0] = useState(blueColor);
-  const [color1, setColor1] = useState(greyColor);
-  const [fontColor0, setFontColor0] = useState("#ffffff");
-  const [fontColor1, setFontColor1] = useState("#000000");
+  const [windows, setWindows] = useState(
+    () => JSON.parse(window.localStorage.getItem("windows")) || winS0
+  );
   function Btn0Clicked() {
-    setWindow(0);
-    setColor0(blueColor);
-    setColor1(greyColor);
-    setFontColor0("#ffffff");
-    setFontColor1("#000000");
+    setWindows(winS0);
   }
   function Btn1Clicked() {
-    setWindow(1);
-    setColor0(greyColor);
-    setColor1(blueColor);
-    setFontColor0("#000000");
-    setFontColor1("#ffffff");
+    setWindows(winS1);
   }
-  const [lecture, setLecture] = useState(data);
+  let [lecture, setLecture] = useState(
+    () => JSON.parse(window.localStorage.getItem("lecture")) || data
+  );
+  useEffect(() => {
+    window.localStorage.setItem("lecture", JSON.stringify(lecture));
+    window.localStorage.setItem("windows", JSON.stringify(windows));
+  }, [lecture, windows]);
   const selectLect = (pointer, nums) => {
     const tempArray = [...lecture];
     tempArray[pointer][8] = nums;
@@ -118,18 +116,18 @@ function MainView({ StartTime }) {
         <SelectBox>
           <SelectButton
             onClick={Btn0Clicked}
-            style={{ backgroundColor: color0, color: fontColor0 }}
+            style={{ backgroundColor: windows[1], color: windows[3] }}
           >
             개설과목
           </SelectButton>
           <SelectButton
             onClick={Btn1Clicked}
-            style={{ backgroundColor: color1, color: fontColor1 }}
+            style={{ backgroundColor: windows[2], color: windows[4] }}
           >
             희망과목
           </SelectButton>
         </SelectBox>
-        {window === 0 && (
+        {windows[0] === 0 && (
           <OpenedLect
             lecture={lecture}
             selectLect={selectLect}
@@ -137,7 +135,7 @@ function MainView({ StartTime }) {
             StartTime={StartTime}
           />
         )}
-        {window === 1 && (
+        {windows[0] === 1 && (
           <SelectedLect
             lecture={lecture}
             selectLect={selectLect}

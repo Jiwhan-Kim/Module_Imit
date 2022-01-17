@@ -5,9 +5,11 @@ import TrHeadForSL from "../../atoms/TrHeadForSL";
 import DeleteBtn from "../../atoms/DeleteBtn";
 import EnrollBtn from "../../atoms/EnrollBtn";
 import ModalTime from "../../atoms/ModalTime";
-// f6f6f6 ffffff
+
 function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
+  let j = 0;
   const [modal1Open, setModal1Open] = useState(false);
+  const [num, setNum] = useState(0);
   let color = "#ffffff";
   const openModal1 = () => {
     setModal1Open(true);
@@ -15,16 +17,13 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const closeModal1 = () => {
     setModal1Open(false);
   };
-  let j = 0;
   function ListBox({ no, num, name, point, prof, time, place, remain }) {
     if (j % 4 === 1) {
       color = "#ffffff";
     } else {
       color = "#f6f6f6";
-    } // 이게 왜 되는거지????????
-    if (lecture[no - 1][8] === 0) {
-      return <tr />;
-    } else {
+    }
+    if (lecture[no - 1][8] === 1) {
       j = j + 1;
       return (
         <Tr style={{ backgroundColor: color }}>
@@ -57,6 +56,8 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
           <Td style={{ width: "6rem" }}>x</Td>
         </Tr>
       );
+    } else {
+      return <tr />;
     }
   }
   const tempArray = [];
