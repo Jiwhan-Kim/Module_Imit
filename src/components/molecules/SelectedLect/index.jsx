@@ -9,7 +9,6 @@ import ModalTime from "../../atoms/ModalTime";
 function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   let j = 0;
   const [modal1Open, setModal1Open] = useState(false);
-  const [num, setNum] = useState(0);
   let color = "#ffffff";
   const openModal1 = () => {
     setModal1Open(true);
