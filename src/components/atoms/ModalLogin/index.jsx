@@ -16,7 +16,7 @@ function ModalLogin(props) {
                   top: "0",
                   left: "0.3rem",
                   background:
-                    'url("/images/logo_mdi.gif") center center no-repeat',
+                    'url("images/logo_mdi.gif") center center no-repeat',
                   width: "2rem",
                   height: "2.4rem",
                 }}
@@ -42,7 +42,7 @@ function ModalLogin(props) {
                   top: "0.5rem",
                   left: "28.4rem",
                   background:
-                    'url("/images/btn_close.gif") center right no-repeat',
+                    'url("images/btn_close.gif") center right no-repeat',
                   cursor: "pointer",
                 }}
                 onClick={close}

@@ -57,7 +57,7 @@ const LoginBox = styled.div`
   margin-top: 8rem;
   width: 47.6rem;
   height: 29rem;
-  background: url("/images/login.png");
+  background: url("images/login.png");
 
   display: flex;
   flex-direction: column;
