@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "./styles/GlobalStyle";
 import App from "./App";
@@ -10,7 +10,8 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename="/">
+        <Link to="/main"/>
         <GlobalStyle />
         <App />
       </BrowserRouter>
