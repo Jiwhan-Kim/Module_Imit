@@ -85,9 +85,12 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
           borderTop: "0.2rem solid #d4d4d4",
           borderRight: "0.15rem solid #e3e3e3",
           borderCollapse: "collapse",
+          height: "60rem",
+          overflow: "auto",
+          display: "inline-table",
         }}
       >
-        <thead>
+        <thead style={{ display: "block", overflowY: "scroll" }}>
           <TrHeadForSL />
         </thead>
         <tbody style={{ minHeight: "20rem" }}>{ListItems}</tbody>

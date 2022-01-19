@@ -11,9 +11,16 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const [modal0Open, setModal0Open] = useState(false);
   const [modal1Open, setModal1Open] = useState(false);
   const [lecName, setLecName] = useState("");
-  const openModal0 = (name) => {
+  const [isChecked, setIsChecked] = useState(0);
+  const openModal0 = (name, check, no) => {
     setModal0Open(true);
     setLecName(name);
+    if (check === 0) {
+      setIsChecked(1);
+    } else {
+      setIsChecked(0);
+    }
+    selectLect(no - 1, 1);
   };
   const openModal1 = () => {
     setModal1Open(true);
@@ -24,7 +31,7 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const closeModal1 = () => {
     setModal1Open(false);
   };
-  function ListBox({ no, num, name, point, prof, time, place, remain }) {
+  function ListBox({ no, num, name, point, prof, time, place, remain, check }) {
     let color = "#ffffff";
     if (no % 2 === 1) {
       color = "#ffffff";
@@ -33,12 +40,10 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
     }
     return (
       <Tr style={{ backgroundColor: color }}>
-        <Td style={{ width: "4rem" }}>{no}</Td>
         <Td style={{ width: "5rem" }}>
           <SelectBtn
             onClick={() => {
-              selectLect(no - 1, 1);
-              openModal0(name);
+              openModal0(name, check, no);
             }}
           />
         </Td>
@@ -81,11 +86,17 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
       time={array[5]}
       place={array[6]}
       remain={array[7]}
+      check={array[8]}
     />
   ));
   return (
     <OutLineBox>
-      <ModalSelect open={modal0Open} close={closeModal0} lecName={lecName} />
+      <ModalSelect
+        open={modal0Open}
+        close={closeModal0}
+        lecName={lecName}
+        isChecked={isChecked}
+      />
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
       <table
         style={{
@@ -94,10 +105,14 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
           borderCollapse: "collapse",
         }}
       >
-        <thead>
+        <thead style={{ overflow: "auto", display: "inline-table" }}>
           <TrHeadForOL />
         </thead>
-        <tbody style={{ maxHeight: "20rem" }}>{ListItems}</tbody>
+        <tbody
+          style={{ display: "block", overflowY: "scroll", height: "30rem" }}
+        >
+          {ListItems}
+        </tbody>
       </table>
     </OutLineBox>
   );
@@ -117,6 +132,8 @@ const Td = styled.td`
   height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
+  white-space: nowrap;
+  text-overflow: clip;
 
   text-align: center;
   display: flex;

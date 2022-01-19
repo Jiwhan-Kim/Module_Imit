@@ -4,7 +4,6 @@ import styled from "styled-components";
 function TrHeadForOL() {
   return (
     <TrHead>
-      <TdHead style={{ width: "4rem" }}>No.</TdHead>
       <TdHead style={{ width: "5rem" }}>
         희망
         <br />
@@ -86,7 +85,6 @@ const TdHead = styled.th`
   border-bottom: 0.15rem solid #e3e3e3;
   height: 6rem;
   white-space: pre-line;
-  border-collapse: collapse;
 
   display: flex;
   align-items: center;
