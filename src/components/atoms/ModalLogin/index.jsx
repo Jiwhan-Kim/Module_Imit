@@ -106,7 +106,7 @@ const Header = styled.div`
 `;
 const Body = styled.div`
   height: 11.95rem;
-  width: 34.5rem;
+  width: auto;
   margin: 0.15rem;
   border-top: 0.15rem solid #b3b3b3;
   border-left: 0.15rem solid #b3b3b3;

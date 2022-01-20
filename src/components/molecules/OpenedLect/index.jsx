@@ -11,9 +11,16 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const [modal0Open, setModal0Open] = useState(false);
   const [modal1Open, setModal1Open] = useState(false);
   const [lecName, setLecName] = useState("");
-  const openModal0 = (name) => {
+  const [isChecked, setIsChecked] = useState(0);
+  const openModal0 = (name, check, no) => {
     setModal0Open(true);
     setLecName(name);
+    if (check === 0) {
+      setIsChecked(1);
+    } else {
+      setIsChecked(0);
+    }
+    selectLect(no - 1, 1);
   };
   const openModal1 = () => {
     setModal1Open(true);
@@ -24,7 +31,7 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const closeModal1 = () => {
     setModal1Open(false);
   };
-  function ListBox({ no, num, name, point, prof, time, place, remain }) {
+  function ListBox({ no, num, name, point, prof, time, place, remain, check }) {
     let color = "#ffffff";
     if (no % 2 === 1) {
       color = "#ffffff";
@@ -33,12 +40,10 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
     }
     return (
       <Tr style={{ backgroundColor: color }}>
-        <Td style={{ width: "4rem" }}>{no}</Td>
-        <Td style={{ width: "5rem" }}>
+        <Td style={{ width: "5.85rem" }}>
           <SelectBtn
             onClick={() => {
-              selectLect(no - 1, 1);
-              openModal0(name);
+              openModal0(name, check, no);
             }}
           />
         </Td>
@@ -52,13 +57,13 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "20.925rem" }}>{name}</Td>
+        <Td style={{ width: "21rem" }}>{name}</Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
-        <Td style={{ width: "9rem" }}>{prof}</Td>
-        <Td style={{ width: "7rem" }}>{time}</Td>
-        <Td style={{ width: "8rem" }}>{place}</Td>
+        <Td style={{ width: "8rem" }}>{prof}</Td>
+        <Td style={{ width: "10rem" }}>{time}</Td>
+        <Td style={{ width: "10rem" }}>{place}</Td>
         <Td style={{ width: "6rem" }}>{remain}</Td>
-        <Td style={{ width: "6rem" }}>0</Td>
+        <Td style={{ width: "5rem" }}>0</Td>
         <Td style={{ width: "4rem" }}>abc</Td>
         <Td style={{ width: "6rem" }}>-</Td>
         <Td style={{ width: "12rem" }}>-</Td>
@@ -81,23 +86,27 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
       time={array[5]}
       place={array[6]}
       remain={array[7]}
+      check={array[8]}
     />
   ));
   return (
     <OutLineBox>
-      <ModalSelect open={modal0Open} close={closeModal0} lecName={lecName} />
+      <ModalSelect
+        open={modal0Open}
+        close={closeModal0}
+        lecName={lecName}
+        isChecked={isChecked}
+      />
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
-      <table
-        style={{
-          borderTop: "0.2rem solid #d4d4d4",
-          borderRight: "0.15rem solid #e3e3e3",
-          borderCollapse: "collapse",
-        }}
-      >
-        <thead>
+      <table>
+        <thead style={{ overflow: "auto", display: "inline-table" }}>
           <TrHeadForOL />
         </thead>
-        <tbody style={{ maxHeight: "20rem" }}>{ListItems}</tbody>
+        <tbody
+          style={{ display: "block", overflowY: "scroll", height: "30rem" }}
+        >
+          {ListItems}
+        </tbody>
       </table>
     </OutLineBox>
   );
@@ -110,13 +119,14 @@ const OutLineBox = styled.div`
 `;
 const Tr = styled.tr`
   font-size: 1.5rem;
-
+  border-right: 0.15rem solid #e3e3e3;
   display: flex;
 `;
 const Td = styled.td`
-  height: 3.5rem;
+  min-height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
+  white-space: pre-line;
 
   text-align: center;
   display: flex;

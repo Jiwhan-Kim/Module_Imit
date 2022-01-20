@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
+const list0 = ["block", "none"];
+const list1 = ["none", "block"];
 function Info() {
+  const [open, setOpen] = useState(list0);
   return (
     <InfoBox>
       <div>
@@ -11,6 +13,25 @@ function Info() {
           본 사이트는 연세대학교 시스템반도체공학과 Module에서 제작한
           '모의수강신청' 사이트입니다.
         </NormalStr>
+        <div style={{ height: "0.5rem" }} />
+        <NormalStr
+          style={{ display: open[0], color: "#999999", cursor: "pointer" }}
+          onClick={() => {
+            setOpen(list1);
+          }}
+        >
+          더보기..
+        </NormalStr>
+        <div
+          style={{ display: open[1], color: "#555555", cursor: "pointer" }}
+          onClick={() => {
+            setOpen(list0);
+          }}
+        >
+          <NormalStr>Front: 김지환 (21) / Back: 김다운 (21)</NormalStr>
+          <div style={{ height: "0.5rem" }} />
+          <NormalStr>ReactJS제작</NormalStr>
+        </div>
       </div>
       <div>
         <NormalStr>

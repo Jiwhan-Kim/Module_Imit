@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function ModalSelect(props) {
-  const { open, close, lecName } = props;
+  const { open, close, lecName, isChecked } = props;
   return (
     <div>
       {open ? (
@@ -48,22 +48,39 @@ function ModalSelect(props) {
                 onClick={close}
               ></div>
             </Header>
-            <Body>
-              <P0 style={{ marginTop: "2rem" }}>
-                선택한 과목이 선택되었습니다.
-              </P0>
-              <P0>과목명: {lecName}</P0>
-              <Link
-                to="/main"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  marginTop: "3.7rem",
-                }}
-              >
-                <ProceedBtn onClick={close}>확인</ProceedBtn>
-              </Link>
-            </Body>
+            {isChecked ? (
+              <Body>
+                <P0 style={{ marginTop: "2rem" }}>
+                  선택한 과목이 선택되었습니다.
+                </P0>
+                <P0>과목명: {lecName}</P0>
+                <Link
+                  to="/main"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    marginTop: "3.7rem",
+                  }}
+                >
+                  <ProceedBtn onClick={close}>확인</ProceedBtn>
+                </Link>
+              </Body>
+            ) : (
+              <Body>
+                <P0 style={{ marginTop: "2rem" }}>이미 선택된 과목입니다.</P0>
+                <div style={{ height: "1.5rem" }} />
+                <Link
+                  to="/main"
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    marginTop: "3.7rem",
+                  }}
+                >
+                  <ProceedBtn onClick={close}>확인</ProceedBtn>
+                </Link>
+              </Body>
+            )}
           </Alert>
         </Background>
       ) : null}
@@ -100,7 +117,7 @@ const Header = styled.div`
 `;
 const Body = styled.div`
   height: 11.95rem;
-  width: 34.5rem;
+  width: auto;
   margin: 0.15rem;
   border-top: 0.15rem solid #b3b3b3;
   border-left: 0.15rem solid #b3b3b3;
