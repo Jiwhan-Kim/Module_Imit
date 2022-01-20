@@ -27,10 +27,10 @@ function ModalTime(props) {
               <div
                 style={{
                   position: "absolute",
-                  top: "0.5rem",
+                  top: "0.6rem",
                   left: "2.5rem",
                   width: "30rem",
-                  height: "2.1rem",
+                  height: "2rem",
                   color: "#383d41",
                   whiteSpze: "nowrap",
                 }}
@@ -120,7 +120,7 @@ const Header = styled.div`
 `;
 const Body = styled.div`
   height: 11.95rem;
-  width: 34.5rem;
+  width: auto;
   margin: 0.15rem;
   border-top: 0.15rem solid #b3b3b3;
   border-left: 0.15rem solid #b3b3b3;

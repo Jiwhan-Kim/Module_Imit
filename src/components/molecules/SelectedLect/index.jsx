@@ -106,7 +106,6 @@ const Td = styled.td`
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
   white-space: pre-line;
-  text-overflow: clip;
 
   text-align: center;
   display: flex;

@@ -41,7 +41,7 @@ const data = [
     3,
     "이광우",
     "월5/수5,6(월6)",
-    "실시간온라인/동영상콘텐츠(동영상콘텐츠)",
+    "실시간온라인/동영상콘텐츠",
     30,
     0,
     0,
@@ -53,7 +53,7 @@ const data = [
     3,
     "이광우",
     "월5/수5,6(월6)",
-    "실시간온라인/동영상콘텐츠(동영상콘텐츠)",
+    "실시간온라인/동영상콘텐츠",
     30,
     0,
     0,
@@ -181,23 +181,24 @@ const data = [
   ],
   [
     16,
-    "YCB1101.99-00",
-    "글쓰기",
-    3,
-    "해그리드",
-    "화3,4/목4",
-    "어딘가",
-    25,
-    0,
-    0,
-  ],
-  [
-    17,
     "YCA1102-99-00",
     "기독교와현대사회",
     3,
     "교수님",
     "목7/토4,5",
+    "어딘가",
+    25,
+    0,
+    0,
+  ],
+
+  [
+    17,
+    "YCB1101.99-00",
+    "글쓰기",
+    3,
+    "해그리드",
+    "화3,4/목4",
     "어딘가",
     25,
     0,
@@ -289,13 +290,13 @@ const BodyBox = styled.div`
   margin: 1.5rem 0rem 0rem 2.5rem;
   display: flex;
   flex-direction: column;
-  width: 128rem;
 `;
 
 const SelectBox = styled.div`
   margin-top: 1.5rem;
   border-bottom: 0.2rem solid #0067b1;
   display: flex;
+  width: 128rem;
 `;
 const SelectButton = styled.div`
   height: 4.5rem;

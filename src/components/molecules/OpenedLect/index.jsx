@@ -123,11 +123,10 @@ const Tr = styled.tr`
   display: flex;
 `;
 const Td = styled.td`
-  height: 3.5rem;
+  min-height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
-  white-space: nowrap;
-  text-overflow: clip;
+  white-space: pre-line;
 
   text-align: center;
   display: flex;
