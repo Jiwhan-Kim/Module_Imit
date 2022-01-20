@@ -7,7 +7,6 @@ import EnrollBtn from "../../atoms/EnrollBtn";
 import ModalTime from "../../atoms/ModalTime";
 
 function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
-  let j = 0;
   const [modal1Open, setModal1Open] = useState(false);
   let color = "#ffffff";
   const openModal1 = () => {
@@ -16,56 +15,54 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const closeModal1 = () => {
     setModal1Open(false);
   };
-  function ListBox({ no, num, name, point, prof, time, place, remain }) {
-    if (j % 4 === 1) {
-      color = "#ffffff";
-    } else {
+  function ListBox({ list, no, num, name, point, prof, time, place, remain }) {
+    if (list % 2 === 1) {
       color = "#f6f6f6";
-    }
-    if (lecture[no - 1][8] === 1) {
-      j = j + 1;
-      return (
-        <Tr style={{ backgroundColor: color }}>
-          <Td style={{ width: "6rem" }}>
-            <DeleteBtn
-              onClick={() => {
-                selectLect(no - 1, 0);
-              }}
-            />
-          </Td>
-          <Td style={{ width: "22.85rem" }}>{num}</Td>
-          <Td style={{ width: "6rem" }}>
-            <EnrollBtn
-              onClick={() => {
-                enrollLect(no - 1, 1);
-                openModal1();
-              }}
-            />
-          </Td>
-          <Td style={{ width: "23rem" }}>{name}</Td>
-          <Td style={{ width: "4rem" }}>{point}</Td>
-          <Td style={{ width: "8rem" }}>{prof}</Td>
-          <Td style={{ width: "10rem" }}>{time}</Td>
-          <Td style={{ width: "10rem" }}>{place}</Td>
-          <Td style={{ width: "6rem" }}>{remain}</Td>
-          <Td style={{ width: "5rem" }}>0</Td>
-          <Td style={{ width: "4rem" }}>abc</Td>
-          <Td style={{ width: "6rem" }}>-</Td>
-          <Td style={{ width: "12rem" }}>-</Td>
-          <Td style={{ width: "5rem" }}>x</Td>
-        </Tr>
-      );
     } else {
-      return <tr />;
+      color = "#ffffff";
     }
+    return (
+      <Tr style={{ backgroundColor: color }}>
+        <Td style={{ width: "6rem" }}>
+          <DeleteBtn
+            onClick={() => {
+              selectLect(no - 1, 0);
+            }}
+          />
+        </Td>
+        <Td style={{ width: "22.85rem" }}>{num}</Td>
+        <Td style={{ width: "6rem" }}>
+          <EnrollBtn
+            onClick={() => {
+              enrollLect(no - 1, 1);
+              openModal1();
+            }}
+          />
+        </Td>
+        <Td style={{ width: "23rem" }}>{name}</Td>
+        <Td style={{ width: "4rem" }}>{point}</Td>
+        <Td style={{ width: "8rem" }}>{prof}</Td>
+        <Td style={{ width: "10rem" }}>{time}</Td>
+        <Td style={{ width: "10rem" }}>{place}</Td>
+        <Td style={{ width: "6rem" }}>{remain}</Td>
+        <Td style={{ width: "5rem" }}>0</Td>
+        <Td style={{ width: "4rem" }}>abc</Td>
+        <Td style={{ width: "6rem" }}>-</Td>
+        <Td style={{ width: "12rem" }}>-</Td>
+        <Td style={{ width: "5rem" }}>x</Td>
+      </Tr>
+    );
   }
   const tempArray = [];
   for (let i = 0; i < lecture.length; i++) {
-    tempArray.push(lecture[i]);
+    if (lecture[i][8] === 1) {
+      tempArray.push(lecture[i]);
+    }
   }
   const ListItems = tempArray.map((array, index) => (
     <ListBox
       key={index}
+      list={index}
       no={array[0]}
       num={array[1]}
       name={array[2]}
