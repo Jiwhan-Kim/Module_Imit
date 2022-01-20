@@ -33,7 +33,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
               }}
             />
           </Td>
-          <Td style={{ width: "21.925rem" }}>{num}</Td>
+          <Td style={{ width: "22.85rem" }}>{num}</Td>
           <Td style={{ width: "6rem" }}>
             <EnrollBtn
               onClick={() => {
@@ -42,17 +42,17 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
               }}
             />
           </Td>
-          <Td style={{ width: "21rem" }}>{name}</Td>
-          <Td style={{ width: "5rem" }}>{point}</Td>
-          <Td style={{ width: "9rem" }}>{prof}</Td>
-          <Td style={{ width: "7rem" }}>{time}</Td>
-          <Td style={{ width: "8rem" }}>{place}</Td>
+          <Td style={{ width: "23rem" }}>{name}</Td>
+          <Td style={{ width: "4rem" }}>{point}</Td>
+          <Td style={{ width: "8rem" }}>{prof}</Td>
+          <Td style={{ width: "10rem" }}>{time}</Td>
+          <Td style={{ width: "10rem" }}>{place}</Td>
           <Td style={{ width: "6rem" }}>{remain}</Td>
-          <Td style={{ width: "6rem" }}>0</Td>
+          <Td style={{ width: "5rem" }}>0</Td>
           <Td style={{ width: "4rem" }}>abc</Td>
           <Td style={{ width: "6rem" }}>-</Td>
-          <Td style={{ width: "16rem" }}>-</Td>
-          <Td style={{ width: "6rem" }}>x</Td>
+          <Td style={{ width: "12rem" }}>-</Td>
+          <Td style={{ width: "5rem" }}>x</Td>
         </Tr>
       );
     } else {
@@ -80,20 +80,15 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   return (
     <OutLineBox>
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
-      <table
-        style={{
-          borderTop: "0.2rem solid #d4d4d4",
-          borderRight: "0.15rem solid #e3e3e3",
-          borderCollapse: "collapse",
-          height: "60rem",
-          overflow: "auto",
-          display: "inline-table",
-        }}
-      >
-        <thead style={{ display: "block", overflowY: "scroll" }}>
+      <table>
+        <thead style={{ overflow: "auto", display: "inline-table" }}>
           <TrHeadForSL />
         </thead>
-        <tbody style={{ minHeight: "20rem" }}>{ListItems}</tbody>
+        <tbody
+          style={{ display: "block", overflowY: "scroll", height: "30rem" }}
+        >
+          {ListItems}
+        </tbody>
       </table>
     </OutLineBox>
   );
@@ -106,6 +101,7 @@ const OutLineBox = styled.div`
 `;
 const Tr = styled.tr`
   font-size: 1.5rem;
+  border-right: 0.15rem solid #e3e3e3;
   display: flex;
 `;
 const Td = styled.td`
@@ -113,6 +109,7 @@ const Td = styled.td`
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
   white-space: pre-line;
+  text-overflow: clip;
 
   text-align: center;
   display: flex;
