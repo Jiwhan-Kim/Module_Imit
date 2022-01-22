@@ -12,6 +12,7 @@ ReactDOM.render(
     <RecoilRoot>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Link to="/main" />
+        <Link to="/time" />
         <GlobalStyle />
         <App />
       </BrowserRouter>

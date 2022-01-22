@@ -7,6 +7,7 @@ import styled from "styled-components";
 // components
 import LoginView from "./components/views/LoginView";
 import MainView from "./components/views/MainView";
+import TimeView from "./components/views/TimeView";
 function App() {
   let [StartTime, StartTimeSet] = useState(
     () => JSON.parse(window.localStorage.getItem("StartTime")) || 0
@@ -107,6 +108,11 @@ function App() {
           exact
           path="/main"
           element={<MainView StartTime={StartTime} />}
+        />
+        <Route
+          exact
+          path="/time"
+          element={<TimeView />}
         />
       </Routes>
     </ThemeProvider>
