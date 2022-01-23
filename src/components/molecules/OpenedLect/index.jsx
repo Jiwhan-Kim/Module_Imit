@@ -47,7 +47,7 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "4rem" }}>1</Td>
+        <Td style={{ width: "4rem" }}>{num.charAt(3)}</Td>
         <Td style={{ width: "21rem" }}>{num}</Td>
         <Td style={{ width: "6rem" }}>
           <EnrollBtn

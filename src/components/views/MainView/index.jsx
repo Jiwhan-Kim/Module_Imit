@@ -191,7 +191,6 @@ const data = [
     0,
     0,
   ],
-
   [
     17,
     "YCB1101.99-00",
@@ -239,6 +238,63 @@ function MainView({ StartTime }) {
       selectLect(i, 0);
     }
   }
+  function cateChan0(temp) {
+    var a = ["전체", "채플", "기독교의이해", "글쓰기", "(~2019학번)대학영어"];
+    var b = [
+      "전체",
+      "문학과예술",
+      "인간과역사",
+      "언어와표현",
+      "가치와윤리",
+      "국가와사회",
+      "지역과세계",
+      "논리와수리",
+      "자연과우주",
+      "생명과환경",
+      "정보와기술",
+      "체육과건강",
+    ];
+    var c = ["전체", "자율선택"];
+    var d = ["전체", "공과대학공통", "시스템반도체공학과"];
+    var e = [
+      "전체",
+      "교양기초-채플",
+      "교양기초-기독교의이해",
+      "교양기초-글쓰기",
+      "대학교양-문학과예술",
+      "대학교양-인간과역사",
+      "대학교양-언어와표현",
+      "대학교양-가치와윤리",
+      "대학교양-국가와사회",
+      "대학교양-지역과세계",
+      "대학교양-논리와수리",
+      "대학교양-자연과우주",
+      "대학교양-생명과환경",
+      "대학교양-정보와기술",
+      "대학교양-체육과건강",
+      "RC교육-YONSEI RC 101",
+    ];
+    var target = document.getElementById("selected");
+    var selection;
+    if (temp === "a") {
+      selection = a;
+    } else if (temp === "b") {
+      selection = b;
+    } else if (temp === "c") {
+      selection = c;
+    } else if (temp === "d") {
+      selection = d;
+    } else if (temp === "e") {
+      selection = e;
+    }
+    target.options.length = 0;
+    for (var x in selection) {
+      var opt = document.createElement("option");
+      opt.value = selection[x];
+      opt.innerHTML = selection[x];
+      target.appendChild(opt);
+    }
+  }
   return (
     <OutLineBox>
       <Header Init={Init} />
@@ -258,6 +314,28 @@ function MainView({ StartTime }) {
             희망과목
           </SelectButton>
         </SelectBox>
+        <OptionBox>
+          <OptionSmallBox>
+            <Title>개설과목 검색</Title>
+            <SelectItem>
+              <option>학부</option>
+              <option>대학원</option>
+            </SelectItem>
+            <SelectItem>
+              <option value="a">교양기초(2019학번~)</option>
+              <option value="b">대학교양(2019학번~)</option>
+              <option value="c">자율선택(2019학번~)</option>
+              <option value="d">공과대학</option>
+              <option value="e">국제캠퍼스(2019학번~)</option>
+            </SelectItem>
+            <SelectItem id="selected">
+              <option></option>
+            </SelectItem>
+          </OptionSmallBox>
+          <OptionSmallBox style={{ borderTop: "0.15rem solid #e3e3e3" }}>
+            <Title>키워드 검색</Title>
+          </OptionSmallBox>
+        </OptionBox>
         {windows[0] === 0 && (
           <OpenedLect
             lecture={lecture}
@@ -297,6 +375,30 @@ const SelectBox = styled.div`
   border-bottom: 0.2rem solid #0067b1;
   display: flex;
   width: 128rem;
+`;
+const OptionBox = styled.div`
+  border: 0.15rem solid #0067b1;
+  width: 128rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+`;
+const OptionSmallBox = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50%;
+  font-size: 1.3rem;
+`;
+const Title = styled.p`
+  font-size: 1.35rem;
+  font-weight: 700;
+  width: 10rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
+`;
+const SelectItem = styled.select`
+  margin-right: 1.5rem;
 `;
 const SelectButton = styled.div`
   height: 4.5rem;
