@@ -51,7 +51,7 @@ function ModalSelect(props) {
             {isChecked ? (
               <Body>
                 <P0 style={{ marginTop: "2rem" }}>
-                  선택한 과목이 선택되었습니다.
+                  선택한 과목이 추가되었습니다.
                 </P0>
                 <P0>과목명: {lecName}</P0>
                 <Link

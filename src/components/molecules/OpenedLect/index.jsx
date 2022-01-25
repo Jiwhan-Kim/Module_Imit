@@ -7,7 +7,7 @@ import EnrollBtn from "../../atoms/EnrollBtn";
 import ModalSelect from "../../atoms/ModalSelect";
 import ModalTime from "../../atoms/ModalTime";
 
-function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
+function OpenedLect({ criteria, lecture, selectLect, enrollLect, StartTime }) {
   const [modal0Open, setModal0Open] = useState(false);
   const [modal1Open, setModal1Open] = useState(false);
   const [lecName, setLecName] = useState("");
@@ -31,16 +31,28 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   const closeModal1 = () => {
     setModal1Open(false);
   };
-  function ListBox({ no, num, name, point, prof, time, place, remain, check }) {
+  function ListBox({
+    list,
+    no,
+    num,
+    name,
+    point,
+    prof,
+    time,
+    place,
+    remain,
+    check,
+  }) {
     let color = "#ffffff";
-    if (no % 2 === 1) {
+    if (list % 2 === 0) {
       color = "#ffffff";
     } else {
       color = "#f6f6f6";
     }
     return (
       <Tr style={{ backgroundColor: color }}>
-        <Td style={{ width: "5.85rem" }}>
+        <Td style={{ width: "4rem" }}>{list + 1}</Td>
+        <Td style={{ width: "4.5rem" }}>
           <SelectBtn
             onClick={() => {
               openModal0(name, check, no);
@@ -48,8 +60,13 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
           />
         </Td>
         <Td style={{ width: "4rem" }}>{num.charAt(3)}</Td>
-        <Td style={{ width: "21rem" }}>{num}</Td>
-        <Td style={{ width: "6rem" }}>
+        <Td style={{ width: "19.35rem", color: "#0063dc" }}>
+          {num}
+          <ImgBox src="images/icon1_on.gif" />
+          <ImgBox src="images/icon2_on.gif" />
+          <ImgBox src="images/icon3_on.gif" />
+        </Td>
+        <Td style={{ width: "5.5rem" }}>
           <EnrollBtn
             onClick={() => {
               enrollLect(no - 1, 1);
@@ -57,12 +74,15 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "21rem" }}>{name}</Td>
+        <Td style={{ width: "21rem" }}>
+          {name}
+          <ImgBox src="images/o_title.gif" />
+        </Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
         <Td style={{ width: "8rem" }}>{prof}</Td>
         <Td style={{ width: "10rem" }}>{time}</Td>
         <Td style={{ width: "10rem" }}>{place}</Td>
-        <Td style={{ width: "6rem" }}>{remain}</Td>
+        <Td style={{ width: "5.5rem" }}>{remain}</Td>
         <Td style={{ width: "5rem" }}>0</Td>
         <Td style={{ width: "4rem" }}>abc</Td>
         <Td style={{ width: "6rem" }}>-</Td>
@@ -73,11 +93,21 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
   }
   const tempArray = [];
   for (let i = 0; i < lecture.length; i++) {
-    tempArray.push(lecture[i]);
+    if (lecture[i][10] === criteria[0]) {
+      if (criteria[1] === "전체" || criteria[1] === lecture[i][11]) {
+        if (
+          criteria[2] === "all" ||
+          parseFloat(criteria[2]) === lecture[i][3]
+        ) {
+          tempArray.push(lecture[i]);
+        }
+      }
+    }
   }
   const ListItems = tempArray.map((array, index) => (
     <ListBox
       key={index}
+      list={index}
       no={array[0]}
       num={array[1]}
       name={array[2]}
@@ -98,7 +128,26 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
         isChecked={isChecked}
       />
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
-      <table>
+      <TitleBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon1_on.gif" />
+          동일교과목 조회
+        </ExplainBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon2_on.gif" />
+          교과목개요 조회
+        </ExplainBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon3_on.gif" />
+          수업계획서 조회
+        </ExplainBox>
+        <ExplainBox style={{ width: "20rem" }}>
+          <ImgBox1 src="images/o_title.gif" />
+          마일리지수강신청결과 조회
+        </ExplainBox>
+      </TitleBox>
+
+      <table style={{ marginTop: "1rem" }}>
         <thead style={{ overflow: "auto", display: "inline-table" }}>
           <TrHeadForOL />
         </thead>
@@ -115,7 +164,8 @@ function OpenedLect({ lecture, selectLect, enrollLect, StartTime }) {
 export default OpenedLect;
 
 const OutLineBox = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.35rem;
 `;
 const Tr = styled.tr`
   font-size: 1.5rem;
@@ -132,4 +182,17 @@ const Td = styled.td`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const ImgBox = styled.img`
+  margin-left: 0.5rem;
+`;
+const ImgBox1 = styled.img`
+  margin: 0rem 0.5rem 0rem 0.5rem;
+`;
+const ExplainBox = styled.div`
+  display: flex;
+  margin-right: 0.7rem;
+`;
+const TitleBox = styled.div`
+  display: flex;
 `;

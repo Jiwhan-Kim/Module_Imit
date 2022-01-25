@@ -4,20 +4,21 @@ import styled from "styled-components";
 function TrHeadForOL() {
   return (
     <TrHead>
-      <TdHead style={{ width: "5.85rem" }}>
+      <TdHead style={{ width: "4rem" }}>No.</TdHead>
+      <TdHead style={{ width: "4.5rem" }}>
         희망
         <br />
         과목
       </TdHead>
       <TdHead style={{ width: "4rem" }}>학년</TdHead>
-      <TdHead style={{ width: "21rem" }}>학정번호-분반-실습</TdHead>
-      <TdHead style={{ width: "6rem" }}>신청</TdHead>
+      <TdHead style={{ width: "19.35rem" }}>학정번호-분반-실습</TdHead>
+      <TdHead style={{ width: "5.5rem" }}>신청</TdHead>
       <TdHead style={{ width: "21rem" }}>과목명</TdHead>
       <TdHead style={{ width: "4rem" }}>학점</TdHead>
       <TdHead style={{ width: "8rem" }}>담당교수</TdHead>
       <TdHead style={{ width: "10rem" }}>강의시간</TdHead>
       <TdHead style={{ width: "10rem" }}>강의실</TdHead>
-      <TdHead style={{ width: "6rem" }}>잔여석</TdHead>
+      <TdHead style={{ width: "5.5rem" }}>잔여석</TdHead>
       <TdHead style={{ width: "5rem", flexDirection: "column" }}>
         <div>총</div>
         <div>대기자</div>

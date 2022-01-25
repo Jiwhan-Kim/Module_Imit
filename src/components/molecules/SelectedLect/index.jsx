@@ -30,7 +30,12 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "22.85rem" }}>{num}</Td>
+        <Td style={{ width: "22.85rem", color: "#0063dc" }}>
+          {num}
+          <ImgBox src="images/icon1_on.gif" />
+          <ImgBox src="images/icon2_on.gif" />
+          <ImgBox src="images/icon3_on.gif" />
+        </Td>
         <Td style={{ width: "6rem" }}>
           <EnrollBtn
             onClick={() => {
@@ -39,7 +44,10 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "23rem" }}>{name}</Td>
+        <Td style={{ width: "23rem" }}>
+          {name}
+          <ImgBox src="images/o_title.gif" />
+        </Td>
         <Td style={{ width: "4rem" }}>{point}</Td>
         <Td style={{ width: "8rem" }}>{prof}</Td>
         <Td style={{ width: "10rem" }}>{time}</Td>
@@ -77,7 +85,26 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   return (
     <OutLineBox>
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
-      <table>
+      <p style={{ fontWeight: "700", fontSize: "2rem" }}>희망과목 내역</p>
+      <TitleBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon1_on.gif" />
+          동일교과목 조회
+        </ExplainBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon2_on.gif" />
+          교과목개요 조회
+        </ExplainBox>
+        <ExplainBox>
+          <ImgBox1 src="images/icon3_on.gif" />
+          수업계획서 조회
+        </ExplainBox>
+        <ExplainBox style={{ width: "20rem" }}>
+          <ImgBox1 src="images/o_title.gif" />
+          마일리지수강신청결과 조회
+        </ExplainBox>
+      </TitleBox>
+      <table style={{ marginTop: "1rem" }}>
         <thead style={{ overflow: "auto", display: "inline-table" }}>
           <TrHeadForSL />
         </thead>
@@ -94,7 +121,8 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
 export default SelectedLect;
 
 const OutLineBox = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.35rem;
 `;
 const Tr = styled.tr`
   font-size: 1.5rem;
@@ -111,4 +139,18 @@ const Td = styled.td`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const ImgBox = styled.img`
+  margin-left: 0.5rem;
+`;
+const ImgBox1 = styled.img`
+  margin: 0rem 0.5rem 0rem 0.5rem;
+`;
+const ExplainBox = styled.div`
+  display: flex;
+  margin-right: 0.7rem;
+`;
+const TitleBox = styled.div`
+  display: flex;
+  margin-top: 1.5rem;
 `;

@@ -28,14 +28,14 @@ function Info() {
             setOpen(list0);
           }}
         >
-          <NormalStr>Front: 김지환 (21) / Back: 김다운 (21)</NormalStr>
+          <NormalStr>제작: 김다운, 김지환 (시반공21)</NormalStr>
           <div style={{ height: "0.5rem" }} />
           <NormalStr>ReactJS제작</NormalStr>
         </div>
       </div>
       <div>
         <NormalStr>
-          대기순번제 기간: 2022.02.xx. 09:00 ~ 2022.02.xx. 17:00
+          대기순번제 기간: 2022.02.23. 09:00 ~ 2022.02.23. 17:00
         </NormalStr>
       </div>
     </InfoBox>
