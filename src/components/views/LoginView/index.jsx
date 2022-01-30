@@ -42,6 +42,11 @@ function LoginView({ output0, output1, setTime, time, valid }) {
             시작
           </ProceedBtn>
         </TimeBox>
+        <TimeBox style={{ marginTop: "1.3rem" }}>
+          <SupportBtn onClick={() => window.open("/clock", "_blank")}>
+            시계
+          </SupportBtn>
+        </TimeBox>
       </LoginBox>
     </OutLineBox>
   );
@@ -81,6 +86,18 @@ const ProceedBtn = styled.div`
   margin-left: 1rem;
   font-size: 2rem;
   font-weight: 1000;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const SupportBtn = styled.div`
+  font-size: 1.2rem;
+  border: 1px solid #0067b2;
+  color: #0067b2;
+  min-width: 8.4rem;
+  height: 2.4rem;
   cursor: pointer;
 
   display: flex;

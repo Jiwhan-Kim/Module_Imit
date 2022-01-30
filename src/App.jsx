@@ -7,6 +7,7 @@ import styled from "styled-components";
 // components
 import LoginView from "./components/views/LoginView";
 import MainView from "./components/views/MainView";
+import Clock from "./components/molecules/clock";
 function App() {
   let [StartTime, StartTimeSet] = useState(
     () => JSON.parse(window.localStorage.getItem("StartTime")) || 0
@@ -108,6 +109,7 @@ function App() {
           path="/main"
           element={<MainView StartTime={StartTime} />}
         />
+        <Route exact path="/clock" element={<Clock />} />
       </Routes>
     </ThemeProvider>
   );
