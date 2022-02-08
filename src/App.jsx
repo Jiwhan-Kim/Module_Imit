@@ -72,8 +72,7 @@ function App() {
       setTextTime(
         AimTime.getFullYear() +
           "년 " +
-          AimTime.getMonth() +
-          1 +
+          (AimTime.getMonth() + 1) +
           "월 " +
           AimTime.getDate() +
           "일 " +
