@@ -333,7 +333,7 @@ function MainView({ StartTime }) {
     setWindows(winS1);
   }
   let [lecture, setLecture] = useState(
-    () => JSON.parse(window.localStorage.getItem("data")) || data
+    () => JSON.parse(window.localStorage.getItem("lecture")) || data
   );
 
   useEffect(() => {
