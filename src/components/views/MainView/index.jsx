@@ -64,7 +64,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     5,
@@ -80,20 +80,7 @@ const data = [
     4,
     15,
   ],
-  [
-    6,
-    "YCA1005.01-00",
-    "채플(A)",
-    0.5,
-    "스프라우트",
-    0.5,
-    "어딘가",
-    4000,
-    0,
-    0,
-    4,
-    1,
-  ],
+  [6, "YCA1005.01-00", "채플(A)", 0.5, "스프라우트", "", "", 4000, 0, 0, 4, 1],
   [
     7,
     "YCA1102-99-00",
@@ -134,7 +121,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     10,
@@ -148,7 +135,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
 
   [
@@ -163,7 +150,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     12,
@@ -177,7 +164,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     13,
@@ -191,7 +178,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     14,
@@ -205,7 +192,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
   [
     15,
@@ -219,7 +206,7 @@ const data = [
     0,
     0,
     3,
-    2,
+    14,
   ],
 
   [
@@ -228,7 +215,7 @@ const data = [
     "모의수강신청",
     1,
     "김지환",
-    "매일매일.",
+    "02/15(목)",
     "Zoom 강의실",
     50,
     0,
@@ -242,7 +229,7 @@ const data = [
     "Module",
     3,
     "convert",
-    "OT날짜",
+    "02/15(목)",
     "ASCII",
     50,
     0,
@@ -333,7 +320,7 @@ function MainView({ StartTime }) {
     setWindows(winS1);
   }
   let [lecture, setLecture] = useState(
-    () => JSON.parse(window.localStorage.getItem("lecture")) || data
+    () => JSON.parse(window.localStorage.getItem("windows")) || data
   );
 
   useEffect(() => {
