@@ -58,6 +58,7 @@ function Header({ Init }) {
 export default Header;
 
 const Head = styled.div`
+  min-width: 134rem;
   width: 100%;
   background-color: #003875;
   border-bottom: 0.3rem solid #ffc000;

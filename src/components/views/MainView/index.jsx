@@ -59,7 +59,7 @@ const data = [
     3,
     "장지원",
     "화6,7,목3",
-    "1긱A413",
+    "실시간온라인",
     50,
     0,
     0,
@@ -320,7 +320,7 @@ function MainView({ StartTime }) {
     setWindows(winS1);
   }
   let [lecture, setLecture] = useState(
-    () => JSON.parse(window.localStorage.getItem("windows")) || data
+    () => JSON.parse(window.localStorage.getItem("lecture")) || data
   );
   useEffect(() => {
     window.localStorage.setItem("lecture", JSON.stringify(lecture));
