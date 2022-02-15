@@ -30,7 +30,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "22.85rem", color: "#0063dc" }}>
+        <Td style={{ width: "23rem", color: "#0063dc" }}>
           {num}
           <ImgBox src="images/icon1_on.gif" />
           <ImgBox src="images/icon2_on.gif" />
@@ -44,7 +44,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "23rem" }}>
+        <Td style={{ width: "22.85rem" }}>
           {name}
           <ImgBox src="images/o_title.gif" />
         </Td>

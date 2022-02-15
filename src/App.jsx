@@ -33,7 +33,6 @@ function App() {
         onChange={onHourChange}
         max="23"
         min="0"
-        type="number"
       />
     );
   }
@@ -45,7 +44,6 @@ function App() {
         onChange={onMinChange}
         max="59"
         min="0"
-        type="number"
       />
     );
   }

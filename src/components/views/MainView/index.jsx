@@ -322,7 +322,6 @@ function MainView({ StartTime }) {
   let [lecture, setLecture] = useState(
     () => JSON.parse(window.localStorage.getItem("windows")) || data
   );
-
   useEffect(() => {
     window.localStorage.setItem("lecture", JSON.stringify(lecture));
     window.localStorage.setItem("windows", JSON.stringify(windows));
@@ -347,6 +346,7 @@ function MainView({ StartTime }) {
     for (var i = 0; i < options.length; i++) {
       if (e.target.value === options[i]) {
         setSelector1(optionData[i]);
+        setOption1("전체");
       }
     }
   };
@@ -389,8 +389,8 @@ function MainView({ StartTime }) {
               ))}
             </SelectItem>
             <SelectItem onChange={handle1Select} value={option1}>
-              {selector1.map((item, index) => (
-                <option key={index} value={item}>
+              {selector1.map((item) => (
+                <option key={item} value={item}>
                   {item}
                 </option>
               ))}
@@ -445,7 +445,7 @@ const OutLineBox = styled.div`
 //min-width = 128.0 + 2.5(margin-left) + 2.5(margin-right) rem;
 
 const BodyBox = styled.div`
-  margin: 1.5rem 0rem 0rem 2.5rem;
+  margin: 2.5rem 0rem 0rem 3rem;
   display: flex;
   flex-direction: column;
 `;

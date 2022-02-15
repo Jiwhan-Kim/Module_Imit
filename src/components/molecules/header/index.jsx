@@ -4,63 +4,70 @@ import { Link } from "react-router-dom";
 
 function Header({ Init }) {
   return (
-    <HeaderBox>
-      <div
-        style={{
-          paddingTop: "2rem",
-          paddingLeft: "2.5rem",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <TitleString style={{ fontSize: "3rem" }}>모의수강신청</TitleString>
-        <TitleString style={{ fontSize: "1.8rem" }}>
-          2022학년도 1학기 모의수강신청
-        </TitleString>
-      </div>
-      <div
-        style={{
-          width: "30rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginRight: "5rem",
-        }}
-      >
-        <table style={{ margin: "0.3rem 2.5rem 0.3rem 0.2rem" }}>
-          <tr>
-            <Td0>소속</Td0>
-            <Td1>학부대학 공학계열</Td1>
-          </tr>
-          <tr>
-            <Td0>학번</Td0>
-            <Td1>2021189908</Td1>
-          </tr>
-          <tr>
-            <Td0>성명</Td0>
-            <Td1>시반공</Td1>
-          </tr>
-          <tr>
-            <Td0>학년</Td0>
-            <Td1>1</Td1>
-          </tr>
-        </table>
-        <Link to="/" style={{ textDecoration: "none" }} onClick={Init}>
-          <LogoutButton>로그아웃</LogoutButton>
-        </Link>
-      </div>
-    </HeaderBox>
+    <Head>
+      <HeaderBox>
+        <div
+          style={{
+            paddingTop: "2rem",
+            paddingLeft: "2.5rem",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <TitleString style={{ fontSize: "3rem" }}>모의수강신청</TitleString>
+          <TitleString style={{ fontSize: "1.8rem" }}>
+            2022학년도 1학기 모의수강신청
+          </TitleString>
+        </div>
+        <div
+          style={{
+            width: "30rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginRight: "5rem",
+          }}
+        >
+          <table style={{ margin: "0.3rem 2.5rem 0.3rem 0.2rem" }}>
+            <tr>
+              <Td0>소속</Td0>
+              <Td1>학부대학 공학계열</Td1>
+            </tr>
+            <tr>
+              <Td0>학번</Td0>
+              <Td1>2021189000</Td1>
+            </tr>
+            <tr>
+              <Td0>성명</Td0>
+              <Td1>Module</Td1>
+            </tr>
+            <tr>
+              <Td0>학년</Td0>
+              <Td1>1</Td1>
+            </tr>
+          </table>
+          <Link to="/" style={{ textDecoration: "none" }} onClick={Init}>
+            <LogoutButton>로그아웃</LogoutButton>
+          </Link>
+        </div>
+      </HeaderBox>
+    </Head>
   );
 }
 
 export default Header;
 
-const HeaderBox = styled.div`
+const Head = styled.div`
+  width: 100%;
   background-color: #003875;
-  border-bottom: 0.3rem solid #ffff00;
+  border-bottom: 0.3rem solid #ffc000;
+`;
+
+const HeaderBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 134rem;
 `;
 const TitleString = styled.div`
   color: white;
