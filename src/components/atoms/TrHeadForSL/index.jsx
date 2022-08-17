@@ -4,30 +4,30 @@ import styled from "styled-components";
 function TrHeadForSL() {
   return (
     <TrHead>
-      <TdHead style={{ width: "6rem" }}>삭제</TdHead>
-      <TdHead style={{ width: "23rem" }}>학정번호-분반-실습</TdHead>
-      <TdHead style={{ width: "6rem" }}>신청</TdHead>
-      <TdHead style={{ width: "22.85rem" }}>과목명</TdHead>
-      <TdHead style={{ width: "4rem" }}>학점</TdHead>
-      <TdHead style={{ width: "8rem" }}>담당교수</TdHead>
-      <TdHead style={{ width: "10rem" }}>강의시간</TdHead>
-      <TdHead style={{ width: "10rem" }}>강의실</TdHead>
-      <TdHead style={{ width: "6rem" }}>잔여석</TdHead>
-      <TdHead style={{ width: "5rem", flexDirection: "column" }}>
+      <TdHead style={{ width: "4.5rem" }}>삭제</TdHead>
+      <TdHead style={{ width: "17.5rem" }}>학정번호-분반-실습</TdHead>
+      <TdHead style={{ width: "7rem" }}>신청</TdHead>
+      <TdHead style={{ width: "19.8rem" }}>과목명</TdHead>
+      <TdHead style={{ width: "3.5rem" }}>학점</TdHead>
+      <TdHead style={{ width: "8.1rem" }}>담당교수</TdHead>
+      <TdHead style={{ width: "8.1rem" }}>강의시간</TdHead>
+      <TdHead style={{ width: "8.1rem" }}>강의실</TdHead>
+      <TdHead style={{ width: "4.6rem" }}>잔여석</TdHead>
+      <TdHead style={{ width: "7rem", flexDirection: "column" }}>
         <div>총</div>
         <div>대기자</div>
       </TdHead>
-      <TdHead style={{ width: "4rem" }}>
+      <TdHead style={{ width: "8.1rem" }}>
         유의
         <br />
         사항
       </TdHead>
-      <TdHead style={{ width: "6rem" }}>
+      <TdHead style={{ width: "5.8rem" }}>
         전공자
         <br />
         잔여석
       </TdHead>
-      <TdHead style={{ width: "12rem", flexDirection: "column" }}>
+      <TdHead style={{ width: "14rem", flexDirection: "column" }}>
         <div
           style={{
             width: "100%",
@@ -56,7 +56,7 @@ function TrHeadForSL() {
           <div>4</div>
         </div>
       </TdHead>
-      <TdHead style={{ width: "5rem" }}>
+      <TdHead style={{ width: "5.8rem" }}>
         교환
         <br />
         학생
@@ -71,7 +71,7 @@ export default TrHeadForSL;
 
 const TrHead = styled.tr`
   background-color: #f4f4f4;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   display: flex;
   border-right: 0.15rem solid #e3e3e3;

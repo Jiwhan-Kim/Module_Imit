@@ -8,7 +8,7 @@ function EnrollBtn({ onClick }) {
 export default EnrollBtn;
 
 const Btn = styled.div`
-  width: 4rem;
+  width: 4.4rem;
   height: 2.6rem;
   background-color: #0066b3;
   color: white;

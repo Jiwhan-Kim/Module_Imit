@@ -51,22 +51,22 @@ function OpenedLect({ criteria, lecture, selectLect, enrollLect, StartTime }) {
     }
     return (
       <Tr style={{ backgroundColor: color }}>
-        <Td style={{ width: "4rem" }}>{list + 1}</Td>
-        <Td style={{ width: "4.5rem" }}>
+        <Td style={{ width: "4.4rem" }}>{list + 1}</Td>
+        <Td style={{ width: "4.3rem" }}>
           <SelectBtn
             onClick={() => {
               openModal0(name, check, no);
             }}
           />
         </Td>
-        <Td style={{ width: "4rem" }}>{num.charAt(3)}</Td>
-        <Td style={{ width: "19.35rem", color: "#0063dc" }}>
+        <Td style={{ width: "3.3rem" }}>{num.charAt(3)}</Td>
+        <Td style={{ width: "17.9rem", color: "#0063dc" }}>
           {num}
           <ImgBox src="images/icon1_on.gif" />
           <ImgBox src="images/icon2_on.gif" />
           <ImgBox src="images/icon3_on.gif" />
         </Td>
-        <Td style={{ width: "5.5rem" }}>
+        <Td style={{ width: "6.7rem" }}>
           <EnrollBtn
             onClick={() => {
               enrollLect(no - 1, 1);
@@ -74,20 +74,20 @@ function OpenedLect({ criteria, lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "21rem" }}>
+        <Td style={{ width: "18.9rem" }}>
           {name}
           <ImgBox src="images/o_title.gif" />
         </Td>
-        <Td style={{ width: "4rem" }}>{point}</Td>
-        <Td style={{ width: "8rem" }}>{prof}</Td>
-        <Td style={{ width: "10rem" }}>{time}</Td>
-        <Td style={{ width: "10rem" }}>{place}</Td>
-        <Td style={{ width: "5.5rem" }}>{remain}</Td>
-        <Td style={{ width: "5rem" }}>0</Td>
-        <Td style={{ width: "4rem" }}>abc</Td>
-        <Td style={{ width: "6rem" }}>-</Td>
-        <Td style={{ width: "12rem" }}>-</Td>
-        <Td style={{ width: "5rem" }}>x</Td>
+        <Td style={{ width: "3.3rem" }}>{point}</Td>
+        <Td style={{ width: "7.8rem" }}>{prof}</Td>
+        <Td style={{ width: "7.8rem" }}>{time}</Td>
+        <Td style={{ width: "7.8rem" }}>{place}</Td>
+        <Td style={{ width: "4.4rem" }}>{remain}</Td>
+        <Td style={{ width: "4.4rem" }}>0</Td>
+        <Td style={{ width: "7.8rem" }}>abc</Td>
+        <Td style={{ width: "5.5rem" }}>-</Td>
+        <Td style={{ width: "13.2rem" }}>-</Td>
+        <Td style={{ width: "4.4rem" }}>x</Td>
       </Tr>
     );
   }
@@ -168,12 +168,13 @@ const OutLineBox = styled.div`
   font-size: 1.35rem;
 `;
 const Tr = styled.tr`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-right: 0.15rem solid #e3e3e3;
   display: flex;
 `;
 const Td = styled.td`
-  min-height: 3.5rem;
+  max-height: 3.5rem;
+  height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;
   white-space: pre-line;

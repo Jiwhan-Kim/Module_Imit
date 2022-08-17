@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 const list0 = ["block", "none"];
 const list1 = ["none", "block"];
+
 function Info() {
   const [open, setOpen] = useState(list0);
   return (
@@ -35,7 +36,7 @@ function Info() {
       </div>
       <div>
         <NormalStr>
-          대기순번제 기간: 2022.02.23. 09:00 ~ 2022.02.23. 17:00
+          대기순번제 기간: 2022.08.24. 09:00 ~ 2022.08.24. 17:00
         </NormalStr>
       </div>
     </InfoBox>
@@ -45,7 +46,7 @@ function Info() {
 export default Info;
 
 const InfoBox = styled.div`
-  width: 128rem;
+  width: 122rem;
   padding: 1rem 3rem 1rem 2rem;
   display: flex;
   flex-direction: row;

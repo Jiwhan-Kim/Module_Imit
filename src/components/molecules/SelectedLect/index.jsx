@@ -23,20 +23,20 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
     }
     return (
       <Tr style={{ backgroundColor: color }}>
-        <Td style={{ width: "6rem" }}>
+        <Td style={{ width: "4.5rem" }}>
           <DeleteBtn
             onClick={() => {
               selectLect(no - 1, 0);
             }}
           />
         </Td>
-        <Td style={{ width: "23rem", color: "#0063dc" }}>
+        <Td style={{ width: "17.5rem", color: "#0063dc" }}>
           {num}
           <ImgBox src="images/icon1_on.gif" />
           <ImgBox src="images/icon2_on.gif" />
           <ImgBox src="images/icon3_on.gif" />
         </Td>
-        <Td style={{ width: "6rem" }}>
+        <Td style={{ width: "7rem" }}>
           <EnrollBtn
             onClick={() => {
               enrollLect(no - 1, 1);
@@ -44,20 +44,20 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
             }}
           />
         </Td>
-        <Td style={{ width: "22.85rem" }}>
+        <Td style={{ width: "19.8rem" }}>
           {name}
           <ImgBox src="images/o_title.gif" />
         </Td>
-        <Td style={{ width: "4rem" }}>{point}</Td>
-        <Td style={{ width: "8rem" }}>{prof}</Td>
-        <Td style={{ width: "10rem" }}>{time}</Td>
-        <Td style={{ width: "10rem" }}>{place}</Td>
-        <Td style={{ width: "6rem" }}>{remain}</Td>
-        <Td style={{ width: "5rem" }}>0</Td>
-        <Td style={{ width: "4rem" }}>abc</Td>
-        <Td style={{ width: "6rem" }}>-</Td>
-        <Td style={{ width: "12rem" }}>-</Td>
-        <Td style={{ width: "5rem" }}>x</Td>
+        <Td style={{ width: "3.5rem" }}>{point}</Td>
+        <Td style={{ width: "8.1rem" }}>{prof}</Td>
+        <Td style={{ width: "8.1rem" }}>{time}</Td>
+        <Td style={{ width: "8.1rem" }}>{place}</Td>
+        <Td style={{ width: "4.6rem" }}>{remain}</Td>
+        <Td style={{ width: "7rem" }}>0</Td>
+        <Td style={{ width: "8.1rem" }}>abc</Td>
+        <Td style={{ width: "5.8rem" }}>-</Td>
+        <Td style={{ width: "14rem" }}>-</Td>
+        <Td style={{ width: "5.8rem" }}>x</Td>
       </Tr>
     );
   }
@@ -85,7 +85,7 @@ function SelectedLect({ lecture, selectLect, enrollLect, StartTime }) {
   return (
     <OutLineBox>
       <ModalTime open={modal1Open} close={closeModal1} StartTime={StartTime} />
-      <p style={{ fontWeight: "700", fontSize: "2rem" }}>희망과목 내역</p>
+      <p style={{ fontWeight: "700", fontSize: "1.7rem" }}>희망과목 내역</p>
       <TitleBox>
         <ExplainBox>
           <ImgBox1 src="images/icon1_on.gif" />
@@ -125,11 +125,12 @@ const OutLineBox = styled.div`
   font-size: 1.35rem;
 `;
 const Tr = styled.tr`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border-right: 0.15rem solid #e3e3e3;
   display: flex;
 `;
 const Td = styled.td`
+  max-height: 3.5rem;
   height: 3.5rem;
   border-left: 0.15rem solid #e3e3e3;
   border-bottom: 0.15rem solid #e3e3e3;

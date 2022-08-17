@@ -12,7 +12,7 @@ function DeleteBtn({ onClick }) {
 export default DeleteBtn;
 
 const Btn = styled.div`
-  width: 4.8rem;
+  width: 3.8rem;
   height: 2.6rem;
   background: linear-gradient(to bottom, #ffffff, #e4e4e4);
   cursor: pointer;
