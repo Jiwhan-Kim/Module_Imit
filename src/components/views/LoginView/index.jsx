@@ -43,9 +43,10 @@ function LoginView({ output0, output1, setTime, time, valid }) {
           </ProceedBtn>
         </TimeBox>
         <TimeBox style={{ marginTop: "1.3rem" }}>
-          <SupportBtn onClick={() => window.open("/clock", "_blank")}>
+
+          <SupportA href="https://time.navyism.com/?host=kimjiwhan.github.io" style={{textDecoration: "None"}}>
             시계
-          </SupportBtn>
+          </SupportA>
         </TimeBox>
       </LoginBox>
     </OutLineBox>
@@ -92,7 +93,8 @@ const ProceedBtn = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const SupportBtn = styled.div`
+
+const SupportA = styled.a`
   font-size: 1.2rem;
   border: 1px solid #0067b2;
   color: #0067b2;
