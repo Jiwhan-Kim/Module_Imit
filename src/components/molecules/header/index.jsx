@@ -16,7 +16,7 @@ function Header({ Init }) {
         >
           <ImgDiv />
           <TitleString style={{ fontSize: "1.8rem" }}>
-            2022학년도 2학기 모의수강신청
+            2023학년도 1학기 모의수강신청
           </TitleString>
         </div>
         <div
@@ -34,7 +34,7 @@ function Header({ Init }) {
             </tr>
             <tr>
               <Td0>학번</Td0>
-              <Td1>2021189004</Td1>
+              <Td1>2023189123</Td1>
             </tr>
             <tr>
               <Td0>성명</Td0>
@@ -42,7 +42,7 @@ function Header({ Init }) {
             </tr>
             <tr>
               <Td0>학년</Td0>
-              <Td1>2</Td1>
+              <Td1>1</Td1>
             </tr>
           </table>
           <Link to="/" style={{ textDecoration: "none" }} onClick={Init}>
